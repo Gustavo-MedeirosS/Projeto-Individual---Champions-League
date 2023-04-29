@@ -66,6 +66,13 @@ body {
     flex-direction: column; */
 }
 
+.sobre .titulo {
+    margin-top: 40px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
 .sobre .carrossel {
     width: 400%;
     height: 550px;
@@ -79,7 +86,11 @@ body {
 .carrossel .slide {
     width: 25%;
     position: relative;
-    transition: 2s;
+    transition: 1.2s;
+}
+
+.carrossel img {
+position: center;
 }
 
 .carrossel img {
@@ -89,14 +100,14 @@ body {
 .manual-navigation {
     position: absolute;
     width: 1000px;
-    margin-top: -120px;
+    margin-top: -130px;
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
 .manual-btn {
-    border: 2px solid #fff;
+    border: 2px solid rgb(14, 5, 92);
     border-radius: 10px;
     padding: 5px;
     cursor: pointer;
@@ -104,7 +115,7 @@ body {
 }
 
 .manual-btn:hover {
-    background-color: #fff;
+    background-color: rgb(14, 5, 92);
 }
 
 #radio1:checked ~ .first {
@@ -136,7 +147,7 @@ body {
 }
 
 .navigation-auto div {
-    border: 2px solid #fff;
+    border: 2px solid rgb(14, 5, 92);
     border-radius: 10px;
     padding: 5px;
     cursor: pointer;
@@ -147,35 +158,35 @@ body {
     position: absolute;
     width: 1000px;
     gap: 10px;
-    margin-top: 430px;
+    margin-top: 420px;
     display: flex;
     justify-content: center;
 }
 
 #radio1:checked ~ .navigation-auto .auto-btn1 {
-    background-color: #fff;
+    background-color: rgb(14, 5, 92);
 }
 
 #radio2:checked ~ .navigation-auto .auto-btn2 {
-    background-color: #fff;
+    background-color: rgb(14, 5, 92);
 }
 
 #radio3:checked ~ .navigation-auto .auto-btn3 {
-    background-color: #fff;
+    background-color: rgb(14, 5, 92);
 }
 
 #radio4:checked ~ .navigation-auto .auto-btn4 {
-    background-color: #fff;
+    background-color: rgb(14, 5, 92);
 }
 
 #radio5:checked ~ .navigation-auto .auto-btn5 {
-    background-color: #fff;
+    background-color: rgb(14, 5, 92);
 }
 
 #radio6:checked ~ .navigation-auto .auto-btn6 {
-    background-color: #fff;
+    background-color: rgb(14, 5, 92);
 }
 
 #radio7:checked ~ .navigation-auto .auto-btn7 {
-    background-color: #fff;
+    background-color: rgb(14, 5, 92);
 }

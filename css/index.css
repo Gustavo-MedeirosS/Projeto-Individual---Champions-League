@@ -62,8 +62,6 @@ body {
     width: 1000px;
     height: 500px;
     overflow: hidden;
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .sobre .titulo {
@@ -90,11 +88,15 @@ body {
 }
 
 .carrossel img {
-position: center;
+    position: center;
+    width: 1000px;
 }
 
-.carrossel img {
-    width: 1000px;
+.carrossel .slide .legenda {
+    position: absolute;
+    color: #fff;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 .manual-navigation {

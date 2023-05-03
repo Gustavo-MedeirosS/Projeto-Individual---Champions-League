@@ -12,6 +12,7 @@ body {
     height: 80px;
     width: 100%;
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     background-color: rgb(17, 3, 145);
@@ -45,7 +46,7 @@ body {
 
 .home {
     height: 650px;
-    background-image: url(../images/background-image-home.jpg);
+    background-image: url(../images/home/background-image-home.jpg);
     background-size: cover;
     background-position: top;
     color: #ffffff;
@@ -62,6 +63,7 @@ body {
     width: 1000px;
     height: 500px;
     overflow: hidden;
+    margin-bottom: 100px;
 }
 
 .sobre .titulo {
@@ -95,8 +97,9 @@ body {
 .carrossel .slide .legenda {
     position: absolute;
     color: #fff;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    left: 20px;
+    top: 280px;
+    text-shadow:  2px 2px 10px #000, -2px 2px 10px #000;
 }
 
 .manual-navigation {
@@ -191,4 +194,56 @@ body {
 
 #radio7:checked ~ .navigation-auto .auto-btn7 {
     background-color: rgb(14, 5, 92);
+}
+
+.proximos-jogos {
+    background-color: rgb(17, 3, 145);
+    color: #fff;
+    width: 100%;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proximos-jogos img {
+    height: 40px;
+}
+
+.proximos-jogos .jogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.proximos-jogos .jogos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proximos-jogos .jogo .equipes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.proximos-jogos .jogos .division {
+    border-right: 2px solid #fff;
+    height: 100px;
+}
+
+.proximos-jogos span {
+    font-size: 20px;
+}
+
+.proximos-jogos a {
+    /* text-decoration: none; */
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: flex-end;
 }

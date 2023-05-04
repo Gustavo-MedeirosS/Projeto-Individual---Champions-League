@@ -241,9 +241,76 @@ body {
 }
 
 .proximos-jogos a {
-    /* text-decoration: none; */
+    width: 100%;
     color: #fff;
-    font-size: 18px;
+    font-size: 15px;
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+}
+
+.estatisticas {
+    height: 260px;
+    width: 100%;
+    background-color: rgb(8, 94, 255);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.estatisticas .infos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.estatisticas .infos h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.estatisticas .dados {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+.estatisticas .dados .jogador-nome-time {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.estatisticas .dados .jogador {
+    height: 60px;
+    border-radius: 40px;
+}
+.estatisticas .dados .nome-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.estatisticas .division {
+    border-right: 2px solid #fff;
+    height: 130px;
+}
+
+.estatisticas .dados h1 {
+    font-size: 40px;
+}
+
+.estatisticas a {
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
 }

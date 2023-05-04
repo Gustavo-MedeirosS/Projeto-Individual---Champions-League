@@ -298,6 +298,12 @@ body {
     justify-content: center;
 }
 
+.estatisticas .dados .nome-time img {
+    height: 20px;
+    position: relative;
+    top: 5px;
+}
+
 .estatisticas .division {
     border-right: 2px solid #fff;
     height: 130px;

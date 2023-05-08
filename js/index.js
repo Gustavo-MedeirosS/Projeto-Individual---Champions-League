@@ -31,3 +31,4 @@ addElement("As fases do mata-mata são: oitavas de final, quartas de final, semi
 addElement("No mata-mata, as equipes se enfrentam em jogo de ida e volta, se classificando quem for vencedor no resultado agregado final ou nos pênaltis, caso haja empate", "../images/home/foto-classificacao-messi.jpg", false);
 addElement("A final é decidida em jogo único e em campo neutro. O vencedor leva a orelhuda pra casa!", "../images/home/taca-champions-foto.jpg", false);
 addElement("O campeão garante vaga no Mundial de Clubes, torneio disputado entre todos os campeões continentais do ano", "../images/home/taca-mundial-de-clubes.jpg", false);
+

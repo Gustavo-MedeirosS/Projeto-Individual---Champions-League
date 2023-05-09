@@ -381,3 +381,37 @@ body {
     margin-top: 15px;
     color: rgb(2, 2, 116);
 }
+
+footer {
+    height: 200px;
+    width: 100%;
+    background-color: rgb(17, 3, 145);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer .logo img {
+    height: 150px;
+}
+
+footer li {
+    list-style: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    font-size: large;
+}
+
+footer .redes-sociais {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+footer .redes-sociais img {
+    height: 30px;
+    color: #ffffff;
+}

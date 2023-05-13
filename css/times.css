@@ -49,35 +49,52 @@ body {
     transition: 0.5s;
 }
 
-.login {
+.times {
     width: 100%;
-    height: 450px;
-    background-color: #fff;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    margin-bottom: 45px;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.login .banner {
-    height: 320px;
-    width: 30%;
-    border: 1px solid rgb(17, 3, 145);
-    border-radius: 15px;
+.times .card-time {
+    height: 300px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     background-color: rgb(17, 3, 145);
     color: #fff;
+    border: 1px solid rgb(17, 3, 145);
+    border-radius: 10px;
+}
+
+.times .card-time .escudo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.banner input {
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    font-family: 'Mukta', sans-serif;
+.times .card-time .escudo img{
+    height: 150px;
+}
+
+.times .card-time .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.times .card-time .pais img {
+    height: 20px;
+}
+
+.times .card-time .estadio img {
+    height: 20px;
 }
 
 footer {

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="../css/login.css" />
+    <title>Times</title>
+    <link rel="stylesheet" href="../css/times.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,8 +16,10 @@
       src="https://kit.fontawesome.com/1dfbd4d56e.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="../js/times.js"></script>
   </head>
-  <body >
+  <body>
     <header>
       <ul class="navbar">
         <li>
@@ -27,9 +29,12 @@
           <a href="#">Estatísticas</a>
         </li>
         <li>
-          <a href="#index.html">
-            <img style="height: 70px" src="../images/logo-champions-league.png" alt=""/>
-          </a>
+          <a href="./index.html"
+            ><img
+              style="height: 70px"
+              src="../images/logo-champions-league.png"
+              alt=""
+          /></a>
         </li>
         <li>
           <a href="#">Notícias</a>
@@ -40,21 +45,29 @@
       </ul>
     </header>
 
-    <section class="login" id="login">
-      <h1>Login</h1>
-
-     <div class="banner">
-        <span>E-mail</span>
-        <input placeholder="gustavo@champions.com" id="input_email"><br>
-
-        <span>Senha</span>
-        <input placeholder="********" type="password" id="input_senha"><br>
-
-        <button onclick="entrar()">Entrar</button><br>
-
-        <span>Não é registrado(a)?</span>
-        <button onclick="">Clique aqui</button>
-     </div>
+    <section class="times" id="times">
+      <h1>Times - 2022/2023</h1>
+      <div class="card-time">
+        <div class="escudo">
+            <img src="../images/times/ajax.png" alt="Ajax">
+            <span>Ajax FC</span>
+        </div>
+        <div class="info">
+            <div class="pais">
+                <img src="../images/paises/holanda.png" alt="Holanda">
+                <span>Holanda</span>
+            </div>
+            <div class="titulos">
+                <i class="fa-solid fa-trophy fa-lg" style="color: #ffffff;"></i>
+                <span>4</span>
+            </div>
+            <div class="estadio">
+                <img src="../images/icon-estadio.png" alt="">
+                <span>Johan Cruijff Arena</span>
+            </div>
+        </div>
+      </div>
+      <script src="../js/times.js"></script>
     </section>
 
     <footer>
@@ -64,28 +77,13 @@
 
       <ul class="lista">
         <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
           <a href="#">Sobre</a>
         </li>
         <li>
           <a href="#">História</a>
         </li>
         <li>
-          <a href="#">Times participantes</a>
-        </li>
-      </ul>
-      
-      <ul class="lista">
-        <li>
-          <a href="#">Chaveamento</a>
-        </li>
-        <li>
-          <a href="#">Notícias</a>
-        </li>
-        <li>
-          <a href="#">Consulta de times</a>
+          <a href="#">Times</a>
         </li>
         <li>
           <a href="#">Curiosidades</a>
@@ -95,22 +93,22 @@
       <ul class="redes-sociais">
         <li>
           <a href="">
-            <i class="fa-brands fa-instagram fa-xl" style="color: #ffffff"></i>
+            <i class="fa-brands fa-instagram fa-2xl" style="color: #ffffff"></i>
           </a>
         </li>
         <li>
           <a href="">
-            <i class="fa-brands fa-facebook fa-xl" style="color: #ffffff"></i>
+            <i class="fa-brands fa-facebook fa-2xl" style="color: #ffffff"></i>
           </a>
         </li>
         <li>
           <a href="">
-            <i class="fa-brands fa-twitter fa-xl" style="color: #ffffff"></i>
+            <i class="fa-brands fa-twitter fa-2xl" style="color: #ffffff"></i>
           </a>
         </li>
         <li>
           <a href="">
-            <i class="fa-brands fa-youtube fa-xl" style="color: #ffffff"></i>
+            <i class="fa-brands fa-youtube fa-2xl" style="color: #ffffff"></i>
           </a>
         </li>
       </ul>

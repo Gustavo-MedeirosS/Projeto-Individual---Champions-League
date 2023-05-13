@@ -35,7 +35,7 @@ var noticia4 = {
 var noticia5 = {
   idNoticia: "noticia5",
   imagem: "https://s2-g1.glbimg.com/aCInDoS08hHl0jKo9mQTcoLwtPs=/0x0:3400x2267/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2023/p/d/nf1Fe7TR62avuPLf0Z7g/ap23126495084267.jpg",
-  assunto: "hino da Champions na coroação do Rei?",
+  assunto: "hino da Champions?",
   manchete: "'Hino' da Champions toca na coroação do Rei Charles III e chama atenção dos fanáticos da competição",
   descricao: "O hino executado durante a coroação do Rei Charles III, em Londres, chamou a atenção pela semelhança com a música oficial da Champions League. O hino tocado não foi o da competição europeia, mas sim 'Zadok the Priest', criada em 1727 para a coroação do Rei George II. Já a música da Champions, foi uma adaptação do hino feita em 1992, e se tornou uma marca da competição."
 };
@@ -83,32 +83,6 @@ var noticia10 = {
 
 listaNoticias.push(noticia1, noticia2, noticia3, noticia4, noticia5, noticia6, noticia7, noticia8, noticia9, noticia10);
 
-function verMaisNoticias() {
-  for (var i = 1; i <= listaNoticias.length; i++) {
-    var noticia = `<div class="noticia" id="${listaNoticias[i-1].idNoticia}">`;
-    noticia += ` <div class="imagem">
-              <img src="${listaNoticias[i-1].imagem}" alt="">
-            </div>
-            <div class="conteudo">
-              <h4>${listaNoticias[i-1].assunto}</h4>
-              <span class="manchete">${listaNoticias[i-1].manchete}</span>
-              <span class="descricao">${listaNoticias[i-1].descricao}</span>
-            </div>
-          </div>
-          `;
-          
-          document.getElementById("noticias").innerHTML += noticia;
-
-          if (i % 3 == 0) {
-            document.getElementById("noticias").show();
-          } 
-          // else {
-          //   document.getElementById("noticias").innerHTML += noticia;
-          //   // document.getElementById("noticias").classList.toggle("noticiaParar");
-          // }
-  }
-}
-
 function addNoticias(idNoticia, imagem, assunto, manchete, descricao) {
   console.log("Notícias adicionadas");
 }
@@ -125,3 +99,33 @@ addNoticias(noticia7.idNoticia, noticia7.imagem, noticia7.assunto, noticia7.manc
 addNoticias(noticia8.idNoticia, noticia8.imagem, noticia8.assunto, noticia8.manchete, noticia8.descricao);
 addNoticias(noticia9.idNoticia, noticia9.imagem, noticia9.assunto, noticia9.manchete, noticia9.descricao);
 addNoticias(noticia10.idNoticia, noticia10.imagem, noticia10.assunto, noticia10.manchete, noticia10.descricao);
+
+
+function verMaisNoticias() {
+  for (var i = 1; i <= listaNoticias.length; i++) {
+    var noticia = `<div class="noticia" id="${listaNoticias[i-1].idNoticia}">`;
+    noticia += ` <div class="imagem">
+              <img src="${listaNoticias[i-1].imagem}" alt="">
+            </div>
+            <div class="conteudo">
+              <h4>${listaNoticias[i-1].assunto}</h4>
+              <span class="manchete">${listaNoticias[i-1].manchete}</span>
+              <span class="descricao">${listaNoticias[i-1].descricao}</span>
+            </div>
+          </div>
+          `;
+          
+          document.getElementById("noticias").innerHTML += noticia;
+          
+          if (i % 3 == 0) {
+            document.getElementById("noticias").show();
+          }
+          
+          // else {
+          //   document.getElementById("noticias").innerHTML += noticia;
+          //   // document.getElementById("noticias").classList.toggle("noticiaParar");
+          // }
+  }
+}
+
+

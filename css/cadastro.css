@@ -83,7 +83,7 @@ body {
     max-height: 320px;
 }
 
-.banner .entrar input {
+.banner .cadastrar input {
     width: 70%;
     border: none;
     padding: 10px;
@@ -95,7 +95,7 @@ body {
     font-family: 'Mukta', sans-serif;
 }
 
-.banner .entrar button {
+.banner .cadastrar button {
     border: none;
     border-radius: 5px;
     width: 293px;

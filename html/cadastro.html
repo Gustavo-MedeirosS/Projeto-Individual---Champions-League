@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="../css/login.css" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/cadastro.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,24 +40,44 @@
       </ul>
     </header>
 
-    <section class="login" id="login">
-      <h1>Login</h1>
+    <section class="cadastro" id="cadastro">
+      <h1>Cadastro</h1>
 
      <div class="banner">
         <div class="imagem">
           <img src="../images/background-login.jpg" alt="">
         </div>
-        <div class="entrar">
+        <div class="cadastrar">
+            <input placeholder="Nome completo" id="input_nomeCompleto"><br>
+          
+          <input placeholder="Data de nascimento" type="date" id="input_dataNascimento"><br>
+
           <input placeholder="E-mail" id="input_email"><br>
-  
+          
           <input placeholder="Senha" type="password" id="input_senha"><br>
+          
+          <input placeholder="Confirmação de senha" type="password" id="input_confirmacaoSenha"><br>
+          
+          <select name="timesFavoritos" id="box-times">
+            <option value="">Real Madrid</option>
+            <option value="">Manchester City</option>
+            <option value="">Borussia Dortmund</option>
+            <option value="">Milan</option>
+            <option value="">Barcelona</option>
+            <option value="">Bayern de Munique</option>
+            <option value="">Paris Saint-Germain</option>
+            <option value="">Liverpool</option>
+            <option value="">Ajax</option>
+            <option value="">Inter de Milão</option>
+            <option value="">Benfica</option>
+            <option value="">Juventus</option>
+            <option value="">Porto</option>
+          </select>
   
-          <button onclick="entrar()">Entrar</button><br>
+          <button onclick="cadastrar()">
+            <a href="./login.html">Cadastrar</a>
+          </button><br>
   
-          <span>Não é registrado(a)?</span>
-          <button onclick="registrar()">
-            <a href="./cadastro.html"></a>  Clique aqui
-          </button>
         </div>
      </div>
     </section>

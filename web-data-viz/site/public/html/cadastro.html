@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/cadastro.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/1dfbd4d56e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../js/funcoes.js"></script>
+
+    <!-- Sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </head>
+  <body >
+    <header>
+      <ul class="navbar">
+        <li>
+          <a href="#">Times</a>
+        </li>
+        <li>
+          <a href="#">Estatísticas</a>
+        </li>
+        <li>
+          <a href="#index.html">
+            <img style="height: 70px" src="../images/logo-champions-league.png" alt=""/>
+          </a>
+        </li>
+        <li>
+          <a href="#">Notícias</a>
+        </li>
+        <li>
+          <a href="#">Entrar</a>
+        </li>
+      </ul>
+    </header>
+
+    <section class="cadastro" id="cadastro">
+      <h1>Cadastro</h1>
+
+     <div class="banner">
+        <div class="imagem">
+          <img src="../images/background-login.jpg" alt="">
+        </div>
+        <div class="cadastrar">
+            <input placeholder="Nome" id="input_nome"><br>
+          
+          <input placeholder="Data de nascimento" type="date" id="input_dataNascimento"><br>
+
+          <input placeholder="E-mail" id="input_email"><br>
+          
+          <input placeholder="Senha" type="password" id="input_senha"><br>
+          
+          <input placeholder="Confirmação de senha" type="password" id="input_confirmacaoSenha"><br>
+          
+          <select name="timesFavoritos" id="timesFavoritos">
+            <option value="1">Real Madrid</option>
+            <option value="2">Manchester City</option>
+            <option value="3">Borussia Dortmund</option>
+            <option value="4">Milan</option>
+            <option value="5">Barcelona</option>
+            <option value="6">Bayern de Munique</option>
+            <option value="7">Paris Saint-Germain</option>
+            <option value="8">Liverpool</option>
+            <option value="9">Ajax</option>
+            <option value="10">Inter de Milão</option>
+            <option value="11">Benfica</option>
+          </select>
+  
+          <button onclick="cadastrar()">Cadastrar</button><br>
+  
+        </div>
+     </div>
+    </section>
+
+    <footer>
+      <div class="logo">
+        <img src="../images/logo-champions-league.png" alt="" />
+      </div>
+
+      <ul class="lista">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Sobre</a>
+        </li>
+        <li>
+          <a href="#">História</a>
+        </li>
+        <li>
+          <a href="#">Times participantes</a>
+        </li>
+      </ul>
+      
+      <ul class="lista">
+        <li>
+          <a href="#">Chaveamento</a>
+        </li>
+        <li>
+          <a href="#">Notícias</a>
+        </li>
+        <li>
+          <a href="#">Consulta de times</a>
+        </li>
+        <li>
+          <a href="#">Curiosidades</a>
+        </li>
+      </ul>
+
+      <ul class="redes-sociais">
+        <li>
+          <a href="">
+            <i class="fa-brands fa-instagram fa-xl" style="color: #ffffff"></i>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class="fa-brands fa-facebook fa-xl" style="color: #ffffff"></i>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class="fa-brands fa-twitter fa-xl" style="color: #ffffff"></i>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class="fa-brands fa-youtube fa-xl" style="color: #ffffff"></i>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
+
+<script>
+  function cadastrar() {
+      // aguardar();
+
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var nomeVar = input_nome.value;
+      var dataNascimentoVar = input_dataNascimento.value;
+      var emailVar = input_email.value;
+      var senhaVar = input_senha.value;
+      var confirmacaoSenhaVar = input_confirmacaoSenha.value;
+      var timeFavoritoVar = timesFavoritos.value;
+
+      if (nomeVar == "" || dataNascimentoVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || timeFavoritoVar == "") {
+          // cardErro.style.display = "block"
+          // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+          finalizarAguardar();
+          return false;
+      }
+      // else {
+      //     setInterval(sumirMensagem, 5000)
+      // }
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              nomeServer: nomeVar,
+              // dataNascimentoServer: dataNascimentoVar,
+              emailServer: emailVar,
+              senhaServer: senhaVar,
+              timeFavoritoServer: timeFavoritoVar
+          })
+      }).then(function (resposta) {
+
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+              // cardErro.style.display = "block";
+
+              // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+              setTimeout(() => {
+                  window.location = "login.html";
+              }, "2000")
+
+              limparFormulario();
+              finalizarAguardar();
+          } else {
+              throw ("Houve um erro ao tentar realizar o cadastro!");
+          }
+      }).catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+      });
+
+      return false;
+  }
+
+  // function sumirMensagem() {
+  //     cardErro.style.display = "none"
+  // }
+
+</script>

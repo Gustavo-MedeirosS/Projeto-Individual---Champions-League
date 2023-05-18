@@ -390,7 +390,7 @@ body {
 }
 
 footer {
-    height: 200px;
+    height: 130px;
     width: 100%;
     background-color: rgb(17, 3, 145);
     display: flex;
@@ -399,7 +399,9 @@ footer {
 }
 
 footer .logo img {
-    height: 150px;
+    height: 100px;
+    display: flex;
+    position: center;
 }
 
 footer li {
@@ -409,7 +411,7 @@ footer li {
 footer a {
     text-decoration: none;
     color: #fff;
-    font-size: large;
+    font-size: 15px;
 }
 
 footer .redes-sociais {

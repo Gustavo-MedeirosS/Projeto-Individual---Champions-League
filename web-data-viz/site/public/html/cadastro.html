@@ -26,21 +26,21 @@
     <header>
       <ul class="navbar">
         <li>
-          <a href="#">Times</a>
+          <a href="./times.html">Times</a>
         </li>
         <li>
           <a href="#">Estatísticas</a>
         </li>
         <li>
-          <a href="#index.html">
+          <a href="./index.html">
             <img style="height: 70px" src="../images/logo-champions-league.png" alt=""/>
           </a>
         </li>
         <li>
-          <a href="#">Notícias</a>
+          <a href="./noticias.html">Notícias</a>
         </li>
         <li>
-          <a href="#">Entrar</a>
+          <a href="./login.html">Entrar</a>
         </li>
       </ul>
     </header>
@@ -50,35 +50,54 @@
 
      <div class="banner">
         <div class="imagem">
-          <img src="../images/background-login.jpg" alt="">
+          <img src="" alt="">
         </div>
         <div class="cadastrar">
-            <input placeholder="Nome" id="input_nome"><br>
-          
-          <input placeholder="Data de nascimento" type="date" id="input_dataNascimento"><br>
+          <div class="nome">
+            <i class="fa-solid fa-user fa-sm" style="color: #a4a5a8;"></i>
+            <input placeholder="Nome" id="input_nome">
+          </div>
 
-          <input placeholder="E-mail" id="input_email"><br>
+          <div class="dataNascimento">
+            <i class="fa-solid fa-calendar-days fa-sm" style="color: #a4a5a8;"></i>
+            <input type="date" id="input_dataNascimento">
+          </div>
+
+          <div class="email">
+            <i class="fa-solid fa-envelope fa-sm" style="color: #a4a5a8;"></i>
+            <input placeholder="E-mail" id="input_email">
+          </div>
           
-          <input placeholder="Senha" type="password" id="input_senha"><br>
+          <div class="senha">
+            <i class="fa-solid fa-lock fa-sm" style="color: #a4a5a8;"></i>
+            <input placeholder="Senha" type="password" id="input_senha">
+          </div>
           
-          <input placeholder="Confirmação de senha" type="password" id="input_confirmacaoSenha"><br>
+          <div class="confirmacaoSenha">
+            <i class="fa-solid fa-lock fa-sm" style="color: #a4a5a8;"></i>
+            <input placeholder="Senha" type="password" id="input_confirmacaoSenha">
+          </div>
+
+          <div class="timeFavorito">
+            <i class="fa-solid fa-shield fa-sm" style="color: #a4a5a8;"></i>
+            <select name="timesFavoritos" id="timesFavoritos">
+              <option value="0">Time favorito</option>
+              <option value="1">Real Madrid</option>
+              <option value="2">Manchester City</option>
+              <option value="3">Borussia Dortmund</option>
+              <option value="4">Milan</option>
+              <option value="5">Barcelona</option>
+              <option value="6">Bayern de Munique</option>
+              <option value="7">Paris Saint-Germain</option>
+              <option value="8">Liverpool</option>
+              <option value="9">Ajax</option>
+              <option value="10">Inter de Milão</option>
+              <option value="11">Benfica</option>
+            </select>
+          </div>
           
-          <select name="timesFavoritos" id="timesFavoritos">
-            <option value="1">Real Madrid</option>
-            <option value="2">Manchester City</option>
-            <option value="3">Borussia Dortmund</option>
-            <option value="4">Milan</option>
-            <option value="5">Barcelona</option>
-            <option value="6">Bayern de Munique</option>
-            <option value="7">Paris Saint-Germain</option>
-            <option value="8">Liverpool</option>
-            <option value="9">Ajax</option>
-            <option value="10">Inter de Milão</option>
-            <option value="11">Benfica</option>
-          </select>
-  
-          <button onclick="cadastrar()">Cadastrar</button><br>
-  
+          <button class="button" onclick="cadastrar()">Cadastrar</button>
+          
         </div>
      </div>
     </section>
@@ -90,7 +109,7 @@
 
       <ul class="lista">
         <li>
-          <a href="#">Home</a>
+          <a href="./index.html">Home</a>
         </li>
         <li>
           <a href="#">Sobre</a>
@@ -99,7 +118,7 @@
           <a href="#">História</a>
         </li>
         <li>
-          <a href="#">Times participantes</a>
+          <a href="./times.html">Times participantes</a>
         </li>
       </ul>
       
@@ -108,7 +127,7 @@
           <a href="#">Chaveamento</a>
         </li>
         <li>
-          <a href="#">Notícias</a>
+          <a href="./noticias.html">Notícias</a>
         </li>
         <li>
           <a href="#">Consulta de times</a>
@@ -161,7 +180,7 @@
           // cardErro.style.display = "block"
           // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-          finalizarAguardar();
+          // finalizarAguardar();
           return false;
       }
       // else {
@@ -194,16 +213,16 @@
 
               setTimeout(() => {
                   window.location = "login.html";
-              }, "2000")
+              }, 2000)
 
               limparFormulario();
-              finalizarAguardar();
+              // finalizarAguardar();
           } else {
               throw ("Houve um erro ao tentar realizar o cadastro!");
           }
       }).catch(function (resposta) {
           console.log(`#ERRO: ${resposta}`);
-          finalizarAguardar();
+          // finalizarAguardar();
       });
 
       return false;

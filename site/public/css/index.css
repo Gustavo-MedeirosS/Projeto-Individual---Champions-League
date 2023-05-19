@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 700;
+}
+
+.navbar {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(17, 3, 145);
+    box-shadow: 0 5px 8px -6px #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar li {
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: large;
+    border-bottom: 1px solid transparent;
+}
+
+.navbar img {
+    display: flex;
+    align-self: center;
+}
+
+.navbar a:hover {
+    border-bottom: 1px solid #ffffff;
+    transition: 0.5s;
+}
+
+.home {
+    height: 650px;
+    background-image: url(../images/home/background-image-home.jpg);
+    background-size: cover;
+    background-position: top;
+    color: #ffffff;
+    display: flex;
+    /* padding-right: 150px; */
+    font-size: xx-large;
+}
+
+.home .titulo {
+    padding-left: 650px;
+    text-shadow: 1px 1px 2px #000, -1px 1px 2px #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 600px;
+}
+
+.sobre {
+    margin: 0 auto;
+    width: 1000px;
+    height: 600px;
+    overflow: hidden;
+    padding-bottom: 150px;
+}
+
+.sobre .titulo {
+    margin-top: 40px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.sobre .carrossel {
+    width: 400%;
+    height: 550px;
+    display: flex;
+}
+
+.carrossel input {
+    display: none;
+}
+
+.carrossel .slide {
+    width: 25%;
+    position: relative;
+    transition: 1.2s;
+}
+
+.carrossel img {
+    position: center;
+    width: 1000px;
+    max-height: 100%;
+}
+
+.carrossel .slide .legenda {
+    position: absolute;
+    color: #fff;
+    left: 20px;
+    bottom: 30px;
+    text-shadow:  2px 2px 10px #000, -2px 2px 10px #000;
+}
+
+.manual-navigation {
+    position: absolute;
+    width: 1000px;
+    margin-top: -130px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.manual-btn {
+    border: 2px solid rgb(14, 5, 92);
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.manual-btn:hover {
+    background-color: rgb(14, 5, 92);
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -75%;
+}
+
+#radio5:checked ~ .first {
+    margin-left: -100%;
+}
+
+#radio6:checked ~ .first {
+    margin-left: -125%;
+}
+
+#radio7:checked ~ .first {
+    margin-left: -150%;
+}
+
+.navigation-auto div {
+    border: 2px solid rgb(14, 5, 92);
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 1000px;
+    gap: 10px;
+    margin-top: 420px;
+    display: flex;
+    justify-content: center;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background-color: rgb(14, 5, 92);
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background-color: rgb(14, 5, 92);
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background-color: rgb(14, 5, 92);
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background-color: rgb(14, 5, 92);
+}
+
+#radio5:checked ~ .navigation-auto .auto-btn5 {
+    background-color: rgb(14, 5, 92);
+}
+
+#radio6:checked ~ .navigation-auto .auto-btn6 {
+    background-color: rgb(14, 5, 92);
+}
+
+#radio7:checked ~ .navigation-auto .auto-btn7 {
+    background-color: rgb(14, 5, 92);
+}
+
+.proximos-jogos {
+    background-color: rgb(17, 3, 145);
+    color: #fff;
+    width: 100%;
+    height: 230px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proximos-jogos img {
+    height: 40px;
+}
+
+.proximos-jogos .jogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.proximos-jogos .jogos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proximos-jogos .jogo .equipes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.proximos-jogos .jogos .division {
+    border-right: 2px solid #fff;
+    height: 100px;
+}
+
+.proximos-jogos span {
+    font-size: 20px;
+}
+
+.proximos-jogos a {
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.estatisticas {
+    height: 260px;
+    width: 100%;
+    padding-top: 10px;
+    background-color: rgb(8, 94, 255);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.estatisticas .infos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.estatisticas .infos h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.estatisticas .dados {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+.estatisticas .dados .jogador-nome-time {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.estatisticas .dados .jogador {
+    height: 60px;
+    border-radius: 40px;
+}
+.estatisticas .dados .nome-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.estatisticas .dados .nome-time img {
+    height: 20px;
+    position: relative;
+    top: 5px;
+}
+
+.estatisticas .division {
+    border-right: 2px solid #fff;
+    height: 130px;
+}
+
+.estatisticas .dados h1 {
+    font-size: 40px;
+}
+
+.estatisticas a {
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.noticias {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.noticias h1 {
+    margin-top: 40px;
+    /* margin-bottom: 20px; */
+}
+
+.noticias .noticia {
+    width: 70%;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+.noticia img {
+    height: 250px;
+    max-width: 375px;
+}
+
+.noticia .conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.noticia .conteudo .manchete {
+    font-size: 25px;
+    color: rgb(2, 2, 116);
+    width: 100%;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.noticia .conteudo .descricao {
+    font-size: 16px;
+    color: rgb(68, 68, 68);
+    font-weight: 400;
+}
+
+.noticias a {
+    margin-top: 15px;
+    color: rgb(2, 2, 116);
+}
+
+footer {
+    height: 130px;
+    width: 100%;
+    background-color: rgb(17, 3, 145);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer .logo img {
+    height: 100px;
+    display: flex;
+    position: center;
+}
+
+footer li {
+    list-style: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+footer .redes-sociais {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

@@ -89,10 +89,25 @@ body {
     color: rgb(17, 3, 145);
 }
 
-.curiosidade .foto {
+.curiosidade .imagem {
     height: 300px;
     width: 50%;
+}
+
+.curiosidade .imagem-1 {
+    background-image: url(../images/curiosidades/origem-champions.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.curiosidade .imagem-2{
     background-image: url(../images/curiosidades/orelhuda.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.curiosidade .imagem-3 {
+    background-image: url(../images/curiosidades/cr7.jpg);
     background-size: cover;
     background-position: center;
 }

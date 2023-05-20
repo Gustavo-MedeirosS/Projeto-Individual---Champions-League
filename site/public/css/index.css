@@ -361,6 +361,7 @@ body {
 .noticia img {
     height: 250px;
     max-width: 375px;
+    border-radius: 10px;
 }
 
 .noticia .conteudo {

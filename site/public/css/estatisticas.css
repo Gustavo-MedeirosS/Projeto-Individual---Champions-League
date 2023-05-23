@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/background-times2.jpg);
+    background-image: url(../images/background-historia.webp);
     background-size: cover;
     /* background-position: center; */
     background-attachment: fixed;
@@ -56,40 +56,77 @@ body {
     transition: 0.5s;
 }
 
-.chaveamento h1 {
-    margin-top: 100px;
+.titulo {
+    margin-top: 90px;
     margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 0px 0px 10px #000;
 }
 
-.chaveamento {
+.estatisticas {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 40px;
+}
+
+.estatisticas .info h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.estatisticas .info {
+    height: auto;
+    background-color: #fff;
+    color: rgb(13, 4, 92);
+    width: 330px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.estatisticas .info .infos {
+    border-bottom: #757575;
+}
+
+.estatisticas .dados {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.estatisticas .dados .jogador-nome-time {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.estatisticas .dados .jogador {
+    height: 60px;
+    border-radius: 40px;
+}
+.estatisticas .dados .nome-time {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
-.fase-de-grupos .grupo {
-    background-color: rgb(17, 3, 145);
-    width: 400px;
-    height: 140px;
-    display: flex;
-    border-radius: 10px;
-    color: #fff;
+.estatisticas .dados .nome-time img {
+    height: 20px;
+    position: relative;
+    top: 5px;
 }
 
-.fase-de-grupos .grupo tr {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-
+.estatisticas .dados h1 {
+    font-size: 40px;
 }
 
-.fase-de-grupos .grupo td {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
 
 footer {
     height: 130px;

@@ -11,9 +11,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/background-times2.jpg);
+    background-image: url(../images/background-consulta-times.jpg);
     background-size: cover;
-    /* background-position: center; */
+    background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
@@ -56,40 +56,16 @@ body {
     transition: 0.5s;
 }
 
-.chaveamento h1 {
+h1 {
     margin-top: 100px;
     margin-bottom: 30px;
-}
-
-.chaveamento {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.fase-de-grupos .grupo {
-    background-color: rgb(17, 3, 145);
-    width: 400px;
-    height: 140px;
-    display: flex;
-    border-radius: 10px;
     color: #fff;
+    text-shadow: 0px 0px 10px #000;
 }
 
-.fase-de-grupos .grupo tr {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
 
-}
 
-.fase-de-grupos .grupo td {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
+
 
 footer {
     height: 130px;

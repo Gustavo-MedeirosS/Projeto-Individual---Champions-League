@@ -299,9 +299,5 @@ for (var i = 0; i < times.length; i++) {
         times[i].qtdTitulos,
         times[i].estadio
     );
-
-    // if (i % 4 == 3) {
-    //     document.getElementById("times").innerHTML += `</br>`;
-    // }
 };
 

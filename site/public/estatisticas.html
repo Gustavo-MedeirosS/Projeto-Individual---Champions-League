@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chaveamento</title>
-    <link rel="stylesheet" href="./css/chaveamento.css" />
+    <link rel="stylesheet" href="./css/estatisticas.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,17 +15,16 @@
       src="https://kit.fontawesome.com/1dfbd4d56e.js"
       crossorigin="anonymous"
     ></script>
-
-    <script src="./js/chaveamento.js"></script>
+    <title>Estatísticas</title>
   </head>
-  <body>
+  <body addArtilheiros()>
     <header>
       <ul class="navbar">
         <li>
           <a href="./times.html">Times</a>
         </li>
         <li>
-          <a href="#">Estatísticas</a>
+          <a href="./estatisticas.html">Estatísticas</a>
         </li>
         <li>
           <a href="./index.html"
@@ -45,38 +43,59 @@
       </ul>
     </header>
 
-    <section class="chaveamento" id="chaveamento">
-      <h1>Fase de Grupos e Mata-Mata</h1>
+    <h1 class="titulo">Estatísticas</h1>
+    <section class="estatisticas" id="estatisticas">
 
-      <div class="fase-de-grupos">
-        <table class="grupo">
-          <h4>Grupo A</h4>
-          <tr>
-            <td>1</td>
-            <td><img style="height: 20px" src="./images/times/napoli.png" alt=""></td>
-            <td>Napoli</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><img style="height: 20px" src="./images/times/liverpool.png" alt=""></td>
-            <td>Liverpool</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><img style="height: 20px" src="./images/times/ajax.png" alt=""></td>
-            <td>Ajax</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td><img style="height: 20px" src="./images/times/rangers.png" alt=""></td>
-            <td>Rangers</td>
-          </tr>
-        </table>
-      </div>
+        <div class="info artilharia">
+            <h2>Artilheiros</h2>
+            <div class="infos" id="infos-artilheiros">
+                <!-- <div class="dados">
+                  <div class="jogador-nome-time">
+                    <img style="height: 60px;" class="jogador" src="./images/jogadores/haaland.jpg" alt="">
+                    <div class="nome-time">
+                      <h3>Erling Haaland</h3>
+                      <span> <img src="./images/times/manchester-city.png" alt=""> Man City</span>
+                    </div>
+                  </div>
+                  <h1>12</h1>
+                </div> -->
+            </div>
+        </div>
 
-      <!-- <script src="./js/chaveamento.js"></script> -->
+        <!-- <div class="info assistencia">
+            <h2>Assistentes</h2>
+            <div class="infos">
+                <div class="dados">
+                  <div class="jogador-nome-time">
+                    <img style="height: 60px;" class="jogador" src="./images/jogadores/vini-jr.jpg" alt="">
+                    <div class="nome-time">
+                      <h3>Vinicius Jr</h3>
+                      <span> <img src="./images/times/real-madrid.png" alt=""> Real Madrid</span>
+                    </div>
+                  </div>
+                  <h1>6</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="info cartoes">
+            <h2>Cartões</h2>
+            <div class="infos">
+                <div class="dados">
+                  <div class="jogador-nome-time">
+                    <img style="height: 60px;" class="jogador" src="./images/jogadores/enzo-fernandez.jpg" alt="">
+                    <div class="nome-time">
+                      <h3>Enzo Fernández</h3>
+                      <span> <img src="./images/times/chelsea.png" alt=""> Chelsea</span>
+                    </div>
+                  </div>
+                  <h1>4</h1>
+                </div>
+            </div>
+        </div> -->
+      <script src="./js/estatisticas.js"></script>
     </section>
-
+    
     <footer>
       <div class="logo">
         <img src="./images/logo-champions-league.png" alt="" />
@@ -87,7 +106,7 @@
           <a href="./index.html">Home</a>
         </li>
         <li>
-          <a href="#">Dashboard</a>
+          <a href="#">Dasboard</a>
         </li>
         <li>
           <a href="./historia.html">História</a>

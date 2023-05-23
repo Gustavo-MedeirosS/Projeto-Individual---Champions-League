@@ -70,23 +70,29 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
+    margin-bottom: 40px;
 }
 
 .estatisticas .info h2 {
     display: flex;
+    height: 80px;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    background-color: rgb(8, 94, 255);
+    color: #fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .estatisticas .info {
-    height: auto;
     background-color: #fff;
     color: rgb(13, 4, 92);
     width: 330px;
     height: auto;
     border-radius: 15px;
+    box-shadow: 0px 0px 10px #000;
 }
 
 .estatisticas .info .infos {
@@ -96,14 +102,19 @@ body {
 .estatisticas .dados {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     gap: 50px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #757575;
 }
 
 .estatisticas .dados .jogador-nome-time {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
 }
 
@@ -112,9 +123,11 @@ body {
     border-radius: 40px;
 }
 .estatisticas .dados .nome-time {
+    width: 130px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .estatisticas .dados .nome-time img {
@@ -125,6 +138,9 @@ body {
 
 .estatisticas .dados h1 {
     font-size: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 

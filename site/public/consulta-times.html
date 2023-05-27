@@ -17,6 +17,9 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src="./js/consulta-times.js"></script>
   </head>
   <body>
@@ -46,58 +49,15 @@
     </header>
 
     <h1>Consulte os dados de um time na Champions 2022/23</h1>
-    
+
+    <div class="digitar-time">
+      <input type="text" placeholder="Time" id="time_digitado" />
+  
+      <button onclick="buscarTime()"><i class="fa-solid fa-magnifying-glass fa-lg" style="color: #0d045c;"></i></button>
+    </div>
+
     <section class="consulta-times" id="consulta-times">
-
-      <input type="text" placeholder="Time" id="time_digitado">
-
-      <button onclick="buscarTime()">Buscar</button>
-
-      <!-- <div id="banner" class="banner">
-        <div class="escudo-nome">
-          <img src="./images/times/ajax.png" alt="">
-          <span>Ajax FC</span>
-        </div>
-
-        <div class="infos">
-          <div class="resultados">
-            <div class="partidas">
-              <span class="numero">6</span>
-              <span class="texto">partidas</span>
-            </div>
-            <div class="vit-der-emp">
-              <span><span class="vitoria"></span> 2 vitórias</span>
-              <span><span class="empate"></span> 0 empates</span>
-              <span><span class="derrota"></span> 2 derrotas</span>
-            </div>
-          </div>
-
-          <div class="gols-cartoes">
-            <div class="gols">
-              <div class="div-caixa">
-                <span class="numero">11</span>
-                <span class="texto">gols marcados</span>
-              </div>
-              <div class="div-caixa">
-                <span class="numero">16</span>
-                <span class="texto">gols sofridos</span>
-              </div>
-            </div>
-
-            <div class="cartoes">
-              <div class="div-caixa">
-                <span class="numero">15</span>
-                <span class="texto">cartões amarelos</span>
-              </div>
-              <div class="div-caixa">
-                <span class="numero">1</span>
-                <span class="texto">cartões vermelhos</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- <script src="./js/consulta-times.js"></script> -->
+      <script src="./js/consulta-times.js"></script>
     </section>
 
     <footer>
@@ -119,7 +79,7 @@
           <a href="./times.html">Times participantes</a>
         </li>
       </ul>
-      
+
       <ul class="lista">
         <li>
           <a href="#">Chaveamento</a>

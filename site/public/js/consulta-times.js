@@ -457,11 +457,11 @@ function buscarTime() {
         
               <div class="cartoes">
                 <div class="div-caixa">
-                  <span class="numero"><i class="fa-solid fa-rectangle-vertical fa-xs" style="color: #fff000;"></i> ${dadosTimes[i].cartoes_amarelos}</span>
+                  <span class="numero"><img style="height: 18px" src="./images/consulta-times-icons/retangulo-amarelo.png" alt""> ${dadosTimes[i].cartoes_amarelos}</span>
                   <span class="texto">cartões amarelos</span>
                 </div>
                 <div class="div-caixa">
-                  <span class="numero"><i class="fa-solid fa-rectangle-vertical fa-xs" style="color: #ff0000;"></i> ${dadosTimes[i].cartoes_vermelhos}</span>
+                  <span class="numero"><img style="height: 18px" src="./images/consulta-times-icons/retangulo-vermelho.png" alt""> ${dadosTimes[i].cartoes_vermelhos}</span>
                   <span class="texto">cartões vermelhos</span>
                 </div>
               </div>

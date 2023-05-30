@@ -38,7 +38,9 @@
           <a href="./noticias.html">Notícias</a>
         </li>
         <li>
-          <a href="./login.html">Entrar</a>
+          <a href="./login.html" class="entrar">
+            <span id="nome_usuario"><i class="fa-solid fa-user fa-xs" style="color: #110391;"></i> Entrar</span>
+          </a>
         </li>
       </ul>
     </header>
@@ -92,10 +94,8 @@
           // cardErro.style.display = "block"
           // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
           // finalizarAguardar();
+          swal("Ops", "Preencha os campos de email e senha!", "error");
           return false;
-      }
-      else {
-          // setInterval(sumirMensagem, 5000)
       }
 
       console.log("FORM LOGIN: ", emailVar);
@@ -122,9 +122,9 @@
 
                   sessionStorage.EMAIL_USUARIO = json.email;
                   sessionStorage.NOME_USUARIO = json.nome;
-                  sessionStorage.ID_USUARIO = json.id;
+                  // sessionStorage.ID_USUARIO = json.id;
 
-                  swal("Parábens", "Login realizado com sucesso redirecionando a home...!", "success");
+                  swal("Boa!", "Login realizado com sucesso redirecionando a home...", "success");
 
                   setTimeout(function () {
                       window.location = "./index.html";
@@ -133,6 +133,7 @@
               });
 
           } else {
+              swal("Ops", "Email e/ou senha inválido(s)!", "error");
 
               console.log("Houve um erro ao tentar realizar o login!");
 

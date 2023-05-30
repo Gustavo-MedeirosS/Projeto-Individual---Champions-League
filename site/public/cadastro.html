@@ -40,7 +40,7 @@
           <a href="./noticias.html">Notícias</a>
         </li>
         <li>
-          <a href="./login.html">Entrar</a>
+          <a href="./login.html" class="entrar"><i class="fa-solid fa-user fa-xs" style="color: #110391;"></i> Entrar</a>
         </li>
       </ul>
     </header>
@@ -121,25 +121,23 @@
   
           if (nomeVar == "" || dataNascimentoVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || timeFavoritoVar == "") {
               //cardErro.style.display = "block"
-              swal("Ops", "Preencha todos os campos", "error")
-  
-  
+              swal("Ops", "Preencha todos os campos!", "error");
               // finalizarAguardar();
               return false;
+          } 
+          else if (senhaVar != confirmacaoSenhaVar) {
+            swal("Ops", "Os campos Senha e Confirmação de Senha estão diferentes!", "error");
           }
           else if (nomeVar.length < 8) {
-              swal("Ops", "O nome inserido é muito curto. Por favor, insira um nome com pelo menos 8 caracteres", "warning")
+              swal("Ops", "O nome inserido é muito curto. Por favor, insira um nome com pelo menos 8 caracteres.", "warning");
           }
           else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1 || emailVar.length < 10) {
-              swal("Ops", "O e-mail cadastrado é inválido. Por favor, insira um e-mail válido", "warning")
+              swal("Ops", "O e-mail cadastrado é inválido. Por favor, insira um e-mail válido!", "warning");
           }
-          else if (senhaVar.length < 4) {
-              swal("Ops", "A senha inserida é muito curta. Por favor,insira uma senha com pelo menos 8 caracteres", "warning")
+          else if (senhaVar.length < 5) {
+              swal("Ops", "A senha inserida é muito curta! Por favor, insira uma senha com pelo menos 5 caracteres.", "warning");
           }
           else {
-              // setInterval('oi', 5000)
-  
-  
               // Enviando o valor da nova input
               fetch("/usuarios/cadastrar", {
                   method: "POST",
@@ -161,7 +159,7 @@
   
                   if (resposta.ok) {
                       //cardErro.style.display = "block";
-                      swal("Parábens", "Cadastro realizado com sucesso redirecionando a tela de login...!", "success");
+                      swal("Boa!", "Cadastro realizado com sucesso redirecionando a tela de login...", "success");
   
   
                       setTimeout(() => {
@@ -188,73 +186,3 @@
   
   
   </script>
-<!-- <script>
-  function cadastrar() {
-      // aguardar();
-
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
-      var nomeVar = input_nome.value;
-      var dataNascimentoVar = input_dataNascimento.value;
-      var emailVar = input_email.value;
-      var senhaVar = input_senha.value;
-      var confirmacaoSenhaVar = input_confirmacaoSenha.value;
-      var timeFavoritoVar = timesFavoritos.value;
-
-      if (nomeVar == "" || dataNascimentoVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || timeFavoritoVar == "") {
-          // cardErro.style.display = "block"
-          // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-          // finalizarAguardar();
-          return false;
-      }
-      // else {
-      //     setInterval(sumirMensagem, 5000)
-      // }
-
-      // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
-              nomeServer: nomeVar,
-              // dataNascimentoServer: dataNascimentoVar,
-              emailServer: emailVar,
-              senhaServer: senhaVar,
-              timeFavoritoServer: timeFavoritoVar
-          })
-      }).then(function (resposta) {
-
-          console.log("resposta: ", resposta);
-
-          if (resposta.ok) {
-              // cardErro.style.display = "block";
-
-              // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-              setTimeout(() => {
-                  window.location = "login.html";
-              }, 2000)
-
-              limparFormulario();
-              // finalizarAguardar();
-          } else {
-              throw ("Houve um erro ao tentar realizar o cadastro!");
-          }
-      }).catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-          // finalizarAguardar();
-      });
-
-      return false;
-  }
-
-  // function sumirMensagem() {
-  //     cardErro.style.display = "none"
-  // }
-
-</script> -->

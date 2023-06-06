@@ -422,6 +422,9 @@ function buscarTime() {
   var consultaTimes = "";
 
   for (var i = 0; i < dadosTimes.length; i++) {
+    var pontuacaoMaxima = dadosTimes[i].partidas * 3;
+    var pontuacaoAtual = (dadosTimes[i].vitorias * 3) + (dadosTimes[i].empates * 1);
+    var aproveitamento = (pontuacaoAtual / pontuacaoMaxima) * 100;
     if (timeDigitado.toUpperCase() == dadosTimes[i].nome_procurado) {
       consultaTimes = `<div id="banner" class="banner">`;
       consultaTimes += `
@@ -440,6 +443,10 @@ function buscarTime() {
                 <span><i class="fa-solid fa-circle fa-xs" style="color: #09c606;"></i>   ${dadosTimes[i].vitorias} vitórias</span>
                 <span><i class="fa-solid fa-circle fa-xs" style="color: #afacac;"></i>   ${dadosTimes[i].empates} empates</span>
                 <span><i class="fa-solid fa-circle fa-xs" style="color: #e60505;"></i>   ${dadosTimes[i].derrotas} derrotas</span>
+              </div>
+              <div class="aproveitamento">
+                <span class="numero">${parseInt(aproveitamento)} %</span>
+                <span class="texto">aproveitamento</span>
               </div>
             </div>
         

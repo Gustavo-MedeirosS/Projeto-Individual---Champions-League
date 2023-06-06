@@ -1,3 +1,9 @@
+sessionStorage.EMAIL_USUARIO
+sessionStorage.NOME_USUARIO
+sessionStorage.ID_USUARIO
+
+nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
 var carrossel = [
   {
     imagem: "./images/home/sorteio-fase-de-grupos.jpeg",

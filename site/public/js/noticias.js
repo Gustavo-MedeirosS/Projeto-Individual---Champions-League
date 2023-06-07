@@ -1,3 +1,9 @@
+if (sessionStorage.length == 0) {
+  nome_usuario.innerHTML = "Entrar";
+} else {
+  nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+}
+
 var listaNoticias = [
   {
     idNoticia: "noticia1",
@@ -105,16 +111,6 @@ function addNoticias(idNoticia, imagem, assunto, manchete, descricao) {
 }
 
 console.log(listaNoticias);
-
-// for (noticia in listaNoticias) {
-//   addNoticias(
-//     noticia.idNoticia,
-//     noticia.imagem,
-//     noticia.assunto,
-//     noticia.manchete,
-//     noticia.descricao
-//   );
-// }
 
 for (var i = 0; i < listaNoticias.length; i++) {
   addNoticias(

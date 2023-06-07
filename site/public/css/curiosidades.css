@@ -51,7 +51,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90px;
+    padding: 5px;
     background-color: #fff;
     color: rgb(17, 3, 145);
     font-size: large;

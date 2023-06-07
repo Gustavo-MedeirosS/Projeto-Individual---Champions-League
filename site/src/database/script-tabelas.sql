@@ -1,11 +1,3 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql - banco local - ambiente de desenvolvimento
-*/
-
 create database ChampionsLeague;
 
 use ChampionsLeague;
@@ -38,3 +30,30 @@ insert into timeFavorito values
 	(null, 'Ajax'),
 	(null, 'Inter de Milão'),
 	(null, 'Benfica');
+
+create table pontuacaoQuiz (
+idPontuacao int auto_increment,
+pontuacao int,
+fkUsuario int,
+constraint fkUser foreign key (fkUsuario) references usuario(idUsuario),
+constraint pkComposta primary key (idPontuacao, fkUsuario)
+);
+
+
+-- SELECTS -------------------------------------------------------------
+select * from usuario;
+
+select * from usuario join timeFavorito 
+	on fkTimeFavorito = idTime;
+    
+select 
+count(u.fkTimeFavorito),
+t.nome 
+from timeFavorito as t join usuario as u
+	on idTime = fkTimeFavorito
+    group by t.nome;
+
+-- SELECTS SOBRE IDADE
+select (year(current_timestamp()) - year(dataNascimento)) from usuario where idUsuario = 106;
+
+select round(avg((year(current_timestamp()) - year(dataNascimento))), 1) from usuario;

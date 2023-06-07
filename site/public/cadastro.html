@@ -127,13 +127,13 @@
               return false;
           } 
           else if (senhaVar != confirmacaoSenhaVar) {
-            swal("Ops", "Os campos Senha e Confirmação de Senha estão diferentes!", "error");
+            swal("Ops", "Os campos Senha e Confirmação de Senha estão diferentes!", "warning");
           }
-          else if (nomeVar.length < 8) {
+          else if (nomeVar.length < 3) {
               swal("Ops", "O nome inserido é muito curto. Por favor, insira um nome com pelo menos 8 caracteres.", "warning");
           }
           else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1 || emailVar.length < 10) {
-              swal("Ops", "O e-mail cadastrado é inválido. Por favor, insira um e-mail válido!", "warning");
+              swal("Ops", "O e-mail inserido é inválido. Por favor, insira um e-mail válido!", "error");
           }
           else if (senhaVar.length < 5) {
               swal("Ops", "A senha inserida é muito curta! Por favor, insira uma senha com pelo menos 5 caracteres.", "warning");

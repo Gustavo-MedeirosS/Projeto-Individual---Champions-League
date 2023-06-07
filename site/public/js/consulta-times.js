@@ -1,3 +1,9 @@
+if (sessionStorage.length == 0) {
+  nome_usuario.innerHTML = "Entrar";
+} else {
+  nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+}
+
 var dadosTimes = [
   {
     nome_procurado: "AJAX",
@@ -305,7 +311,7 @@ var dadosTimes = [
     partidas: 6,
     vitorias: 0,
     empates: 0,
-    derrotas: 0,
+    derrotas: 6,
     gols_marcados: 2,
     gols_sofridos: 22,
     cartoes_amarelos: 10,

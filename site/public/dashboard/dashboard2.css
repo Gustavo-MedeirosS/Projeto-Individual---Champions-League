@@ -21,6 +21,8 @@ body {
     top: 0;
     left: 0;
     background-color: rgb(17, 3, 145);
+    /* background: rgb(22,4,194);
+    background: radial-gradient(circle, rgba(22,4,194,1) 0%, rgba(17,3,145,1) 100%); */
     box-shadow: 0 5px 8px -6px #000;
     display: flex;
     flex-direction: row;
@@ -66,98 +68,48 @@ body {
     transition: 0.5s;
 }
 
-.noticias {
+.janela {
+    height: 100vh;
     width: 100%;
-    height: auto;
+}
+
+.navbar-left {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background-color: rgb(31, 12, 202);
+    color: #fff;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.noticias h1 {
-    margin-top: 100px;
-    /* margin-bottom: 20px; */
+.navbar-left li {
+    list-style: none;
 }
 
-.noticias .noticia {
-    width: 70%;
-    height: 250px;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    padding-bottom: 30px;
-    padding-top: 30px;
-    border-bottom: 1px solid rgb(197, 197, 197);
-}
-
-.noticiaParar {
-    width: 70%;
-    height: 250px;
-    display: none;
-    flex-direction: row;
-    gap: 20px;
-    padding-bottom: 30px;
-    padding-top: 30px;
-    border-bottom: 1px solid rgb(197, 197, 197);
-}
-
-.noticia .imagem {
-    height: 250px;
-    max-width: 375px;
-}
-
-.noticia img {
-    height: 250px;
-    max-width: 375px;
+.navbar-left a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+    border: none;
     border-radius: 10px;
-}
-
-.noticia .conteudo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-
-.noticia .conteudo .manchete {
-    font-size: 25px;
-    color: rgb(2, 2, 116);
-    width: 100%;
-    font-weight: 700;
-    line-height: 30px;
-}
-
-.noticia .conteudo .descricao {
-    font-size: 16px;
-    color: rgb(68, 68, 68);
-    font-weight: 400;
-}
-
-button {
-    height: 40px;
-    width: 115px;
-    font-family: 'Mukta', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    color:#fff;
-    background-color: rgb(17, 3, 145);
-    border: 1px solid rgb(17, 3, 145);
-    border-radius: 8px;
-    margin: 15px;
+    background-color: #fff;
+    color: rgb(31, 12, 202);
+    font-size: large;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
-button:hover {
+.navbar-left a:hover {
     box-shadow: 0px 3px 15px #0000009d;
 }
 
-button a {
-    text-decoration: none;
-    font-size: 16px;
-    color:#fff;
-    transition: 1s;
-}
+
 
 footer {
     height: 130px;

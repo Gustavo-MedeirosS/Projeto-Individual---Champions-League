@@ -1,8 +1,8 @@
-sessionStorage.EMAIL_USUARIO
-sessionStorage.NOME_USUARIO
-sessionStorage.ID_USUARIO
-
-nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+if (sessionStorage.length == 0) {
+  nome_usuario.innerHTML = "Entrar";
+} else {
+  nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+}
 
 var carrossel = [
   {

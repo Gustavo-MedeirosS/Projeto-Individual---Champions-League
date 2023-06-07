@@ -44,7 +44,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90px;
+    padding: 5px;
     background-color: #fff;
     color: rgb(17, 3, 145);
     font-size: large;
@@ -165,13 +165,12 @@ body {
     background-color: rgb(17, 3, 145);
     color: #fff;
     width: 100%;
-    height: 230px;
-    padding-top: 10px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .proximos-jogos img {
@@ -195,11 +194,6 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.proximos-jogos .jogos .division {
-    border-right: 2px solid #fff;
-    height: 100px;
 }
 
 .proximos-jogos span {
@@ -282,7 +276,6 @@ body {
 }
 
 .estatisticas a {
-    width: 100%;
     color: #fff;
     font-size: 15px;
     display: flex;

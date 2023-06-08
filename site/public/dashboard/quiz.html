@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../images/icon-champions-league.png" type="image/x-icon">
-    <link rel="stylesheet" href="dashboard2.js">
+    <link rel="stylesheet" href="quiz.js">
     <!-- Sweet alert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
@@ -57,9 +57,9 @@
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="analytics.html">
             <i class="fas fa-solid fa-chart-line" style="color: #ffffff;"></i>
-            <span>Analytics</span>
+            <span>Análises</span>
           </a>
         </li>
         <li>
@@ -77,103 +77,17 @@
       </ul>
     </header>
 
-    <div class="conteudo">
+    <div class="conteudo questoes">
         <h2>Quiz da Champions League</h2>
 
-        <div id="quiz">
-          <p>Clique no boão abaixo para responder o quiz sobre a Champions League</p>
+        <div id="div_quiz">
+          <p>Clique no botão abaixo para responder o quiz sobre a Champions League.</p>
 
-          <button onclick="quiz()">Iniciar</button>
-        </div>
+          <p>Responda 10 perguntas gerais sobre a competição e, no final, veja seu resultado.</p>
 
-        <div id="questao1" class="questao display-none">
-          <h3>1. Quem é o maior artilheiro da história da Champions League?</h3>
-          <input type="radio" value="Lionel Messi">Lionel Messi
-          <input type="radio" value="Cristiano Ronaldo">Cristiano Ronaldo
-          <input type="radio" value="Zlatan Ibrahimovic">Zlatan Ibrahimovic
-          <input type="radio" value="Karim Benzema">Karim Benzema
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
+          <button class="iniciar" onclick="iniciarQuiz()">Iniciar</button>
 
-        <div id="questao2" class="questao display-none">
-          <h3>2. O jogador mais jovem a jogar a Champions é:</h3>
-          <input type="radio" value="Kylian Mbappé">Kylian Mbappé
-          <input type="radio" value="Pedri">Pedri
-          <input type="radio" value="Youssoufa Moukoko">Youssoufa Moukoko
-          <input type="radio" value="Erling Haaland">Erling Haaland
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
-
-        <div id="questao3" class="questao display-none">
-          <h3>3. Como o troféu da Champions é popularmente chamado?</h3>
-          <input type="radio" value="Taça da Europa">Taça da Europa
-          <input type="radio" value="Orelhuda">Orelhuda
-          <input type="radio" value="Taça dos Campeões">Taça dos Campeões
-          <input type="radio" value="Troféu de Prata">Troféu de Prata
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
-
-        <div id="questao4" class="questao display-none">
-          <h3>4. Quantos times participam da fase de grupos da Champions League?</h3>
-          <input type="radio" value="24 times">24 times
-          <input type="radio" value="28 times">28 times
-          <input type="radio" value="32 times">32 times
-          <input type="radio" value="40 times">40 times
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
-
-        <div id="questao5" class="questao display-none">
-          <h3>5. Em qual temporada a Champions League foi disputada pela primeira vez?</h3>
-          <input type="radio" value="1955-1956">1955-1956
-          <input type="radio" value="1960-1961">1960-1961
-          <input type="radio" value="1974-1975">1974-1975
-          <input type="radio" value="1992-1993">1992-1993
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
-
-        <div id="questao6" class="questao display-none">
-          <h3>6. O maior vencedor da Champions League é:</h3>
-          <input type="radio" value="Milan">Milan
-          <input type="radio" value="Real Madrid">Real Madrid
-          <input type="radio" value="Barcelona">Barcelona
-          <input type="radio" value="Bayern de Munique">Bayern de Munique
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
-
-        <div id="questao7" class="questao display-none">
-          <h3>7. Qual o jogador brasileiro com mais gols na Champions League?</h3>
-          <input type="radio" value="Ronaldo">Ronaldo
-          <input type="radio" value="Romário">Romário
-          <input type="radio" value="Ronaldinho Gaúcho">Ronaldinho Gaúcho
-          <input type="radio" value="Neymar">Neymar
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
-
-        <div id="questao8" class="questao display-none">
-          <h3>8. Qual foi a final da Champions 2021/2022?</h3>
-          <input type="radio" value="Liverpool x Manchester City">Liverpool x Manchester City
-          <input type="radio" value="Liverpool x Real Madrid">Liverpool x Real Madrid
-          <input type="radio" value="Manchester City x Real Madrid">Manchester City x Real Madrid
-          <input type="radio" value="Chelsea x Manchester City">Chelsea x Manchester City
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
-
-        <div id="questao9" class="questao display-none">
-          <h3>9. Qual o jogador com mais títulos na história da Champions League?</h3>
-          <input type="radio" value="Cristiano Ronaldo">Cristiano Ronaldo
-          <input type="radio" value="Lionel Messi">Lionel Messi
-          <input type="radio" value="Paolo Maldini">Paolo Maldini
-          <input type="radio" value="Francisco Gento">Francisco Gento
-          <button onclick="passarQuestao()">Próxima</button>
-        </div>
-
-        <div id="questao10" class="questao display-none">
-          <h3>10. Qual time venceu a primeira edição da Champions League?</h3>
-          <input type="radio" value="Real Madrid">Real Madrid
-          <input type="radio" value="Ajax">Ajax
-          <input type="radio" value="Bayern de Munique">Bayern de Munique
-          <input type="radio" value="Benfica">Benfica
-          <button onclick="passarQuestao()">Próxima</button>
+          <script src="quiz.js"></script>
         </div>
     </div>
 </body>

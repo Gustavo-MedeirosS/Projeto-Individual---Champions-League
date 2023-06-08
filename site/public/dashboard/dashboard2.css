@@ -157,8 +157,122 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
+/* QUIZ ---------------------------------------------------------------------- */
+.questoes {
+    background-image: url(../images/background-historia.webp);
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.questoes h2 {
+    color: #fff;
+    text-shadow: 0px 0px 10px #000;
+}
+
+#div_quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+    width: 500px;
+    padding: 20px;
+    background-color: rgb(17, 3, 145);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #000;
+}
+
+#div_quiz p {
+    width: 300px;
+    display: flex;
+    align-self: center;
+    margin-bottom: 30px;
+}
+
+#div_quiz .iniciar {
+    height: 30px;
+    width: 90px;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(17, 3, 145);
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    margin: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+#div_quiz .iniciar:hover {
+    box-shadow: 0px 3px 15px #0000009d;
+}
+
+#div_quiz .enunciado {
+    margin-bottom: 15px;
+}
+
+#div_quiz .inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+#div_quiz .option {
+    display: flex;
+    gap: 10px;
+}
+
+#div_quiz #btn_passar {
+    height: 30px;
+    width: 90px;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(17, 3, 145);
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#btn_passar:hover {
+    box-shadow: 0px 3px 15px #0000009d;
+}
+
+#div_quiz #btn_voltar {
+    height: 30px;
+    width: 90px;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(17, 3, 145);
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#btn_voltar:hover {
+    box-shadow: 0px 3px 15px #0000009d;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 /* CONSULTA DE TIMES -------------------------------------------------------------- */
 .pesquisa {

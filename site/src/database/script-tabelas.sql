@@ -54,6 +54,13 @@ from timeFavorito as t join usuario as u
     group by t.nome;
 
 -- SELECTS SOBRE IDADE
-select (year(current_timestamp()) - year(dataNascimento)) from usuario where idUsuario = 106;
+select (year(current_timestamp()) - year(dataNascimento)) as Idade from usuario where idUsuario = 106;
+select (year(current_timestamp()) - year(dataNascimento)) as Idade from usuario;
 
 select round(avg((year(current_timestamp()) - year(dataNascimento))), 1) from usuario;
+
+select 
+max((year(current_timestamp()) - year(dataNascimento))) as 'Idade Máxima',
+min((year(current_timestamp()) - year(dataNascimento))) as 'Idade Mínima'
+from usuario;
+

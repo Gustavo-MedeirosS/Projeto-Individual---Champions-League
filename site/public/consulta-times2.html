@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champions League | Consulta de time</title>
+    <link rel="stylesheet" href="./dashboard/dashboard2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./images/icon-champions-league.png" type="image/x-icon">
+    <link rel="stylesheet" href="./js/consulta-times.js">
+    <!-- Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+  <header>
+    <ul class="navbar">
+      <li>
+        <a href="./times.html">Times</a>
+      </li>
+      <li>
+        <a href="./estatisticas.html">Estatísticas</a>
+      </li>
+      <li>
+        <a href="./index.html"><img style="height: 70px" src="./images/logo-champions-league.png" alt=""/></a>
+      </li>
+      <li>
+        <a href="./noticias.html">Notícias</a>
+      </li>
+      <li>
+        <a href="./login.html" id="usuario" class="entrar">
+          <i class="fa-solid fa-user fa-xs" style="color: #110391;"></i><span id="nome_usuario"></span>
+        </a>
+      </li>
+    </ul>
+  </header>
+
+    <header>
+      <ul class="navbar-left">
+        <div class="usuario">
+          <i class="fas fa-solid fa-user" style="color: #ffffff;"></i>
+          <span id="nome_usuario"></span>
+        </div>
+        <li>
+          <a href="./dashboard/quiz.html">
+            <i class="fas fa-solid fa-file-circle-question" style="color: #ffffff;"></i>
+            <span>Quiz</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class="fas fa-solid fa-ranking-star" style="color: #ffffff;"></i>
+            <span>Ranking</span>
+          </a>
+        </li>
+        <li>
+          <a href="./dashboard/analytics.html">
+            <i class="fas fa-solid fa-chart-line" style="color: #ffffff;"></i>
+            <span>Análises</span>
+          </a>
+        </li>
+        <li>
+          <a href="consulta-times2.html">
+            <i class="fas fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+            <span>Consultar time</span>
+          </a>
+        </li>
+        <li class="sair">
+          <a href="">
+            <i class="fas fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
+            <span>Sair</span>
+          </a>
+        </li>
+      </ul>
+    </header>
+
+    <div class="conteudo pesquisa">
+        <h2>Consulte os dados de um time na Champions 2022/23</h2>
+
+        <div class="digitar-time">
+            <input type="text" placeholder="Time" id="time_digitado" />
+        
+            <button onclick="buscarTime()"><i class="fa-solid fa-magnifying-glass fa-lg" style="color: #0d045c;"></i></button>
+          </div>
+      
+          <section class="consulta-times" id="consulta-times">
+            <script src="./js/consulta-times.js"></script>
+          </section>
+        
+    </div>
+</body>
+</html>

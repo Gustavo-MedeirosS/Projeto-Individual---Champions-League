@@ -32,13 +32,13 @@ insert into timeFavorito values
 	(null, 'Benfica');
 
 create table consultaTimes (
-idTimePesquisado int primary key auto_increment,
+idPesquisa int primary key auto_increment,
 nomeTime varchar(45),
 qtdConsulta int
 ) auto_increment = 0;
 
 insert into consultaTimes values
-	(null, 'Ajax', 0),
+	(null, 'Ajax', 2),
 	(null, 'Atlético de Madrid', 0),
 	(null, 'Barcelona', 0),
 	(null, 'Bayer Leverkusen', 0),
@@ -104,4 +104,3 @@ max((year(current_timestamp()) - year(dataNascimento))) as 'Idade Máxima',
 min((year(current_timestamp()) - year(dataNascimento))) as 'Idade Mínima'
 from usuario;
 
-update consultaTimes set qtdConsulta = 2 where nomeTime = 'Barcelona';

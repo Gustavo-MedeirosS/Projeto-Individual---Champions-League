@@ -94,44 +94,79 @@ function iniciarQuiz() {
     </div>
     <div class="inputs">
         <div class="option">
-            <input type="radio" name="option${quiz[i].questao}" value="${quiz[i].alternativa1}">${quiz[i].alternativa1}
+            <input 
+                type="radio" 
+                name="option${quiz[i].questao}" 
+                value="${quiz[i].alternativa1}" ${quiz[i].alternativa1 == respostasUsuario[i] ? "checked" : ""}
+            >${quiz[i].alternativa1}
         </div>
         <div class="option">
-            <input type="radio" name="option${quiz[i].questao}" value="${quiz[i].alternativa2}">${quiz[i].alternativa2}
+            <input 
+                type="radio" 
+                name="option${quiz[i].questao}" 
+                value="${quiz[i].alternativa2}" ${quiz[i].alternativa2 == respostasUsuario[i] ? "checked" : ""}
+            >${quiz[i].alternativa2}
         </div>
         <div class="option">
-            <input type="radio" name="option${quiz[i].questao}" value="${quiz[i].alternativa3}">${quiz[i].alternativa3}
+            <input 
+                type="radio" 
+                name="option${quiz[i].questao}" 
+                value="${quiz[i].alternativa3}" ${quiz[i].alternativa3 == respostasUsuario[i] ? "checked" : ""}
+            >${quiz[i].alternativa3}
         </div>
         <div class="option">
-            <input type="radio" name="option${quiz[i].questao}" value="${quiz[i].alternativa4}">${quiz[i].alternativa4}
+            <input 
+                type="radio" 
+                name="option${quiz[i].questao}" 
+                value="${quiz[i].alternativa4}" ${quiz[i].alternativa4 == respostasUsuario[i] ? "checked" : ""}
+            >${quiz[i].alternativa4}
         </div>
     </div>
     </div>
     <div class="botoes">
         ${i > 0 ? '<button id="btn_voltar" onclick="voltarQuestao()">Anterior</button>' : ''}
-        ${i < quiz.length - 1 ? '<button id="btn_passar" onclick="passarQuestao()">Próxima</button>' : '<button id="btn_passar" onclick="finalizarQuiz()">Finalizar</button>'}
+        ${i < quiz.length - 1 ? '<button id="btn_passar" onclick="passarQuestao()">Próxima</button>' : '<button id="btn_passar" onclick="passarQuestao()">Finalizar</button>'}
     </div>
     `;
     div_quiz.innerHTML = question;
-
-    // i++;
 }
 
 function passarQuestao() {
     console.log(i);
+
     var radios = document.getElementsByName(`option${i + 1}`);
     for (var indice = 0; indice < radios.length; indice++) {
         if (radios[indice].checked) {
-            respostasUsuario.push(radios[indice].value);
+            if (respostasUsuario[i]) {
+                console.log("deu certo");
+                respostasUsuario[i] = radios[indice].value;
+            } else {
+                respostasUsuario.push(radios[indice].value);
+            }
         }
     }
-    
+
     i++;
 
     iniciarQuiz();
 }
 
 function voltarQuestao() {
-    i = i - 2;
+    i = i - 1;
     iniciarQuiz();
+}
+
+function finalizarQuiz() {
+    i++;
+    if (respostasUsuario.length != gabarito.length) {
+        swal("Ops", "Pergunta(s) em branco. Por favor, responda todas as perguntas.", "error");
+    } else {
+        var respostasCertas = 0;
+        for (var i = 0; i < respostasUsuario.length; i++) {
+            if (respostasUsuario[i] == gabarito[i]) {
+                respostasCertas++;
+            }
+        }
+        console.log("Respostas certas: ", respostasCertas);
+    }
 }

@@ -17,6 +17,7 @@
     ></script>
     <title>Champions League | Historia</title>
     <link rel="shortcut icon" href="./images/icon-champions-league.png" type="image/x-icon">
+    <script src="./js/funcoes.js"></script>
   </head>
   <body>
     <header>
@@ -39,9 +40,9 @@
           <a href="./noticias.html">Notícias</a>
         </li>
         <li>
-          <a href="./login.html" id="usuario" class="entrar">
+          <button onclick="validarSessao()" id="usuario" class="entrar">
             <i class="fa-solid fa-user fa-xs" style="color: #110391;"></i><span id="nome_usuario"></span>
-          </a>
+          </button>
         </li>
       </ul>
     </header>
@@ -183,3 +184,14 @@
     </footer>
   </body>
 </html>
+
+<script>
+  
+
+  if (sessionStorage.length == 0) {
+  nome_usuario.innerHTML = "Entrar";
+} else {
+  nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+}
+
+</script>

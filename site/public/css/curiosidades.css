@@ -51,6 +51,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    border: none;
     padding: 5px;
     background-color: #fff;
     color: rgb(17, 3, 145);
@@ -58,6 +60,13 @@ body {
     border-radius: 10px;
     gap: 6px;
     transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar .entrar span {
+    font-size: large;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 700;
 }
 
 .navbar .entrar:hover {

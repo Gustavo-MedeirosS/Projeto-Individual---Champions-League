@@ -18,7 +18,11 @@ function validarSessao() {
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../index.html";
+    swal("Saindo...", "Desconectando do site e redirecionando para a home...", "success");
+    setTimeout(() => {
+        window.location = "../index.html";
+    }, 2000)
+    // window.location = "../index.html";
 }
 
 // carregamento (loading)

@@ -2,17 +2,14 @@ var consultaTimesModel = require("../models/consultaTimesModel");
 
 function publicar(req, res) {
     var nomeTime = req.body.nomeTime;
-    var qtdConsulta = req.body.qtdConsulta;
     var idUsuario = req.params.idUsuario;
 
     if (nomeTime == undefined) {
-        res.status(400).send("O título está indefinido!");
-    } else if (qtdConsulta == undefined) {
-        res.status(400).send("A descrição está indefinido!");
+        res.status(400).send("O time está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        consultaTimesModel.publicar(nomeTime, qtdConsulta, idUsuario)
+        consultaTimesModel.publicar(nomeTime, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -29,22 +26,18 @@ function publicar(req, res) {
 }
 
 function exibir(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idConsultaTimes = req.params.idquiz;
 
-    consultaTimesModel.exibir(novaDescricao, idConsultaTimes)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
+    consultaTimesModel.exibir().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 
 }
 

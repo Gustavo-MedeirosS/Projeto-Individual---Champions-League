@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./js/consulta-times.js">
     <!-- Sweet alert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/funcoes.js"></script>
 </head>
 <body>
   <header>
@@ -31,9 +32,9 @@
         <a href="./noticias.html">Notícias</a>
       </li>
       <li>
-        <a href="./login.html" id="usuario" class="entrar">
+        <button onclick="validarSessao()" id="usuario" class="entrar">
           <i class="fa-solid fa-user fa-xs" style="color: #110391;"></i><span id="nome_usuario"></span>
-        </a>
+        </button>
       </li>
     </ul>
   </header>
@@ -42,7 +43,7 @@
       <ul class="navbar-left">
         <div class="usuario">
           <i class="fas fa-solid fa-user" style="color: #ffffff;"></i>
-          <span id="nome_usuario"></span>
+          <span id="nome_usuario2"></span>
         </div>
         <li>
           <a href="./dashboard/quiz.html">
@@ -69,10 +70,8 @@
           </a>
         </li>
         <li class="sair" onclick="limparSessao()">
-          <a href="">
             <i class="fas fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
             <span>Sair</span>
-          </a>
         </li>
       </ul>
     </header>

@@ -7,7 +7,7 @@ router.post("/publicar/:idUsuario", function (req, res) {
     consultaTimesController.publicar(req, res);
 });
 
-router.get("/editar/ultimas", function (req, res) {
+router.get("/exibir", function (req, res) {
     consultaTimesController.exibir(req, res);
 });
 

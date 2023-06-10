@@ -18,6 +18,7 @@
       src="https://kit.fontawesome.com/1dfbd4d56e.js"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/funcoes.js"></script>
 </head>
 <body>
   <header>
@@ -35,9 +36,9 @@
         <a href="../noticias.html">Notícias</a>
       </li>
       <li>
-        <a href="../login.html" id="usuario" class="entrar">
+        <button onclick="validarSessao()" id="usuario" class="entrar">
           <i class="fa-solid fa-user fa-xs" style="color: #110391;"></i><span id="nome_usuario"></span>
-        </a>
+        </button>
       </li>
     </ul>
   </header>
@@ -46,7 +47,7 @@
       <ul class="navbar-left">
         <div class="usuario">
           <i class="fas fa-solid fa-user" style="color: #ffffff;"></i>
-          <span id="nome_usuario"></span>
+          <span id="nome_usuario2"></span>
         </div>
         <li>
           <a href="quiz.html">
@@ -73,10 +74,8 @@
           </a>
         </li>
         <li class="sair" onclick="limparSessao()">
-          <a href="">
-            <i class="fas fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
-            <span>Sair</span>
-          </a>
+          <i class="fas fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
+          <span>Sair</span>
         </li>
       </ul>
     </header>
@@ -104,10 +103,13 @@
 </html>
 
 <script>
-  sessionStorage.EMAIL_USUARIO
-  sessionStorage.NOME_USUARIO
-  sessionStorage.ID_USUARIO
+  sessionStorage.EMAIL_USUARIO;
+  sessionStorage.NOME_USUARIO;
+  sessionStorage.ID_USUARIO;
 
+  nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  nome_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
+  
   fetch(`/ranking/ultimas`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {

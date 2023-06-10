@@ -18,6 +18,7 @@
     ></script>
     <script src="./js/noticias.js"></script>
     <link rel="shortcut icon" href="./images/icon-champions-league.png" type="image/x-icon">
+    <script src="./js/funcoes.js"></script>
   </head>
   <body onload="verMaisNoticias(3)">
     <header>
@@ -40,9 +41,9 @@
           <a href="./noticias.html">Notícias</a>
         </li>
         <li>
-          <a href="./login.html" id="usuario" class="entrar">
+          <button onclick="validarSessao()" id="usuario" class="entrar">
             <i class="fa-solid fa-user fa-xs" style="color: #110391;"></i><span id="nome_usuario"></span>
-          </a>
+          </button>
         </li>
       </ul>
     </header>

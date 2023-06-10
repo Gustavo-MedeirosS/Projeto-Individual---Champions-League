@@ -1,6 +1,9 @@
-sessionStorage.EMAIL_USUARIO
-sessionStorage.NOME_USUARIO
-sessionStorage.ID_USUARIO
+sessionStorage.EMAIL_USUARIO;
+sessionStorage.NOME_USUARIO;
+sessionStorage.ID_USUARIO;
+
+nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+nome_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
 
 var quiz = [
     {

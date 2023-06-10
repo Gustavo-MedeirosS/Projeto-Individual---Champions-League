@@ -34,48 +34,10 @@ insert into timeFavorito values
 create table consultaTimes (
 idPesquisa int auto_increment,
 nomeTime varchar(45),
-qtdConsulta int,
 fkUsuario int,
 constraint fkUs foreign key (fkUsuario) references usuario(idUsuario),
 constraint pkDupla primary key (idPesquisa, fkUsuario)
 ) auto_increment = 0;
-
-insert into consultaTimes(nomeTime, qtdConsulta, fkUsuario) values
-	('Barcelona', 1, 100);
-
-insert into consultaTimes values
-	(null, 'Ajax', 2),
-	(null, 'Atlético de Madrid', 0),
-	(null, 'Barcelona', 0),
-	(null, 'Bayer Leverkusen', 0),
-	(null, 'Bayern de Munique', 0),
-	(null, 'Benfica', 0),
-	(null, 'Borussia Dortmund', 0),
-	(null, 'Brugge', 0),
-	(null, 'Celtic', 0),
-	(null, 'Chelsea', 0),
-	(null, 'Copenhagen', 0),
-	(null, 'Dinamo Zagreb', 0),
-	(null, 'Frankfurt', 0),
-	(null, 'Inter de Milão', 0),
-	(null, 'Juventus', 0),
-	(null, 'Liverpool', 0),
-	(null, 'Maccabi Haifa', 0),
-	(null, 'Manchester City', 0),
-	(null, 'Milan', 0),
-	(null, 'Napoli', 0),
-	(null, 'Olympique Marseille', 0),
-	(null, 'PSG', 0),
-	(null, 'Porto', 0),
-	(null, 'Rangers', 0),
-	(null, 'Leipzig', 0),
-	(null, 'Salzburg', 0),
-	(null, 'Real Madrid', 0),
-	(null, 'Sevilla', 0),
-	(null, 'Shakhtar Donetsk', 0),
-	(null, 'Sporting', 0),
-	(null, 'Tottenham', 0),
-	(null, 'Viktoria Plzen', 0);
 
 create table pontuacaoQuiz (
 idPontuacao int auto_increment,
@@ -125,8 +87,8 @@ from pontuacaoQuiz as p join usuario as u
     
 -- select para time consultado
 select 
-count(c.qtdConsulta) as 'Quantidade de consultas',
-c.nomeTime as 'Time'
+count(c.nomeTime) as Consultas,
+c.nomeTime as Time
 from consultaTimes as c
-    group by c.nomeTime
-    order by c.qtdConsulta desc;
+    group by Times
+    order by Consultas desc;

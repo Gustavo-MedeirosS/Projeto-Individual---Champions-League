@@ -1,12 +1,24 @@
-  sessionStorage.EMAIL_USUARIO
-  sessionStorage.NOME_USUARIO
-  sessionStorage.ID_USUARIO
+sessionStorage.EMAIL_USUARIO;
+sessionStorage.NOME_USUARIO;
+sessionStorage.ID_USUARIO;
 
-if (sessionStorage.length == 0) {
-  nome_usuario.innerHTML = "Entrar";
+
+
+  if (sessionStorage.EMAIL_USUARIO != null && sessionStorage.NOME_USUARIO != null) {
+    // window.alert(`Seja bem-vindo, ${nome}!`);
+    nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    nome_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
+    // window.location = "../dashboard/analytics.html"
+
 } else {
-  nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    window.location = "../login.html";
 }
+
+// if (sessionStorage.length == 0) {
+//   nome_usuario.innerHTML = "Entrar";
+// } else {
+//   nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+// }
 
 var dadosTimes = [
   {
@@ -436,6 +448,7 @@ function buscarTime() {
     var pontuacaoAtual = (dadosTimes[i].vitorias * 3) + (dadosTimes[i].empates * 1);
     var aproveitamento = (pontuacaoAtual / pontuacaoMaxima) * 100;
     if (timeDigitado.toUpperCase() == dadosTimes[i].nome_procurado) {
+      console.log("Time: ", dadosTimes[i].nome)
       consultaTimes = `<div id="banner" class="banner">`;
       consultaTimes += `
             <div class="escudo-nome">
@@ -488,6 +501,28 @@ function buscarTime() {
             `;
 
       document.getElementById("consulta-times").innerHTML = consultaTimes;
+
+      fetch(`/consultaTimes/publicar/${sessionStorage.ID_USUARIO}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nomeTime: dadosTimes[i].nome,
+            fkUsuario: sessionStorage.ID_USUARIO
+        })
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+          console.log("Resposta: ", resposta)
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
     }
     }
     if (consultaTimes == "") {

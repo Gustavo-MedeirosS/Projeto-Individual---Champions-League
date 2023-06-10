@@ -50,6 +50,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    border: none;
     padding: 5px;
     background-color: #fff;
     color: rgb(17, 3, 145);
@@ -57,6 +59,13 @@ body {
     border-radius: 10px;
     gap: 6px;
     transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar .entrar span {
+    font-size: large;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 700;
 }
 
 .navbar .entrar:hover {
@@ -80,6 +89,7 @@ body {
     left: 0;
     height: 82.4vh;
     width: 70px;
+    z-index: 8;
     padding-top: 100px;
     background-color: rgb(31, 12, 202);
     color: #fff;
@@ -93,6 +103,16 @@ body {
 }
 
 .navbar-left a {
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    display: table;
+    width: 200px;
+    padding: 10px;
+}
+
+.navbar-left .sair {
     text-decoration: none;
     position: relative;
     color: #fff;
@@ -139,7 +159,14 @@ body {
 
 .navbar-left .sair {
     position: absolute;
-    bottom: 40px;
+    bottom: 15px;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 16px;
+    display: table;
+    width: 200px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .display-block {
@@ -472,32 +499,51 @@ body {
     background-position: bottom;
     background-attachment: fixed;
     background-repeat: no-repeat;
-}
-
-.analises h2 {
-    color: #fff;
-    margin-top: 50px;
-    text-shadow: 0px 0px 10px #000;
-}
-
-.quadroTimeFav {
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.quadroTimeFav h3 {
+.analises::-webkit-scrollbar {
+    display: none;
+  }
+
+.analises h2 {
+    color: #fff;
+    margin-top: 50px;
+    text-shadow: 0px 0px 10px #000;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.quadros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.quadro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.quadro h3 {
     color: #fff;
     text-shadow: 0px 0px 10px #000;
     gap: 10px;
     z-index: 1;
 }
 
-.graficoTimeFav {
+.grafico {
     color: #fff;
-    width: 300px;
-    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -506,6 +552,16 @@ body {
     background-color: #f1f1f1;
     padding: 20px;
     box-shadow: 0 0 25px #000000a0;
+}
+
+.grafico .timeFav {
+    width: 300px;
+    height: 300px;
+}
+
+.grafico .timeConsultado {
+    width: 400px;
+    height: 300px;
 }
 
 /* RANKING ---------------------------------------------- */

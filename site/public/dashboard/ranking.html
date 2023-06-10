@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Champions League | Analises</title>
+    <title>Champions League | Ranking</title>
     <link rel="stylesheet" href="./dashboard2.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../images/icon-champions-league.png" type="image/x-icon">
-    <link rel="stylesheet" href="dashboard2.js">
+    <link rel="stylesheet" href="quiz.js">
     <!-- Sweet alert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- ChartJS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://kit.fontawesome.com/1dfbd4d56e.js"
+      crossorigin="anonymous"
+    ></script>
 </head>
 <body>
   <header>
     <ul class="navbar">
       <li>
-        <a href="../times.html">Times</a>
+        <a href="./times.html">Times</a>
       </li>
       <li>
         <a href="../estatisticas.html">Estatísticas</a>
@@ -53,13 +55,13 @@
           </a>
         </li>
         <li>
-          <a href="ranking.html">
+          <a href="">
             <i class="fas fa-solid fa-ranking-star" style="color: #ffffff;"></i>
             <span>Ranking</span>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="analytics.html">
             <i class="fas fa-solid fa-chart-line" style="color: #ffffff;"></i>
             <span>Análises</span>
           </a>
@@ -79,42 +81,50 @@
       </ul>
     </header>
 
-    <div class="conteudo analises">
-        <h2>Análises</h2>
-        
-        <div id="quadroTimeFav" class="quadroTimeFav">
-          <h3 class="tituloGraficos">
-              Times escolhidos pelos usuários
-          </h3>
-          <div class="graficoTimeFav">
-              <canvas id="myChartCanvasTimeFav"></canvas>
+    <div class="conteudo ranking">
+        <h2>Ranking - Quiz</h2>
+
+        <div id="ranking" class="tabela-ranking">
+          <div class="titulos">
+            <span>Usuário</span>
+            <span>Acertos</span>
+            <span>Pontuação</span>
+            <span>Time</span>
           </div>
-          
-      </div>
+
+          <div class="infos" id="infos">
+            <div class="nome" id="nome"></div>
+            <div class="acertos" id="acertos"></div>
+            <div class="pontuacao" id="pontuacao"></div>
+            <div class="time" id="time"></div>
+          </div>
+        </div>
     </div>
 </body>
 </html>
 
 <script>
-  sessionStorage.EMAIL_USUARIO;
-  sessionStorage.NOME_USUARIO;
-  sessionStorage.ID_USUARIO;
+  sessionStorage.EMAIL_USUARIO
+  sessionStorage.NOME_USUARIO
+  sessionStorage.ID_USUARIO
 
-  window.onload = obterDadosGraficos();
-
-  function obterDadosGraficos() {
-    obterDadosGraficoTimeFav();
-  }
-
-  function obterDadosGraficoTimeFav() {
-
-    fetch(`/medidas/ultimas`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/ranking/ultimas`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     // resposta.reverse();
 
-                    plotarGraficoTimeFav(resposta);
+                    console.log(resposta.Acertos);
+
+                  for (i = 0; i < resposta.length; i++) {
+                    montarRanking(
+                      resposta[i].Usuário,
+                      resposta[i].Acertos,
+                      resposta[i].Pontuação,
+                      resposta[i].Time
+                    );
+                  }
+
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -123,63 +133,52 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-  }
+    
+            function montarRanking(nome, acertos, pontuacao, time) {
 
-  // PLOTANDO GRÁFICO DE TIME FAVORITO
-  function plotarGraficoTimeFav(resposta) {
+              document.getElementById("nome").innerHTML += `<span>${nome}</span>`;
+              document.getElementById("acertos").innerHTML += `<span>${acertos}</span>`;
+              document.getElementById("pontuacao").innerHTML += `<span>${pontuacao}</span>`;
+              document.getElementById("time").innerHTML += `<span>${time}</span>`;
+              
+            }
 
-    // Criando estrutura para plotar gráfico - labels
-    let labelsTimeFav = [];
+  // fetch("/usuarios/ranking", {
+  //         method: "POST",
+  //         headers: {
+  //             "Content-Type": "application/json"
+  //         },
+  //         body: JSON.stringify({
+  //             acertos: acertos,
+  //             pontuacao: pontuacao
+  //         })
+  //     }).then(function (resposta) {
+  //         console.log("ESTOU NO THEN DO ranking()!")
 
-    // Criando estrutura para plotar gráfico - dados
-    let dadosTimeFav = {
-        labels: labelsTimeFav,
-        datasets: [{
-            label: '',
-            data: [],
-            fill: false,
-            backgroundColor: [
-              "red",
-              "blue",
-              "green",
-              "black",
-              "yellow",
-              "purple"
-            ],
-            tension: 0.1
-        }]
-    };
+  //         if (resposta.ok) {
+  //             console.log(resposta);
 
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labelsTimeFav.push(registro.time);
-            console.log("Labels: ", labelsTimeFav)
-            dadosTimeFav.datasets[0].data.push(registro.usuarios);
-        }
+  //             resposta.json().then(json => {
+  //                 console.log(json);
+  //                 console.log(JSON.stringify(json));
 
 
-      console.log('----------------------------------------------')
-      console.log('O gráfico será plotado com os respectivos valores:')
-      console.log('Labels:')
-      console.log(labelsTimeFav)
-      console.log('Dados:')
-      console.log(dadosTimeFav.datasets)
-      console.log('----------------------------------------------')
+  //                 // setTimeout(function () {
+  //                 //     window.location = "./dashboard/analytics.html";
+  //                 // }, 1000); // apenas para exibir o loading
 
+  //             });
 
-    // Criando estrutura para plotar gráfico - config
-    const configTimeFav = {
-            type: 'pie',
-            data: dadosTimeFav,
-        };
+  //         } else {
+  //             console.log("Houve um erro ao tentar exibir o ranking!");
 
-        // Adicionando gráfico criado em div na tela
-        let myChartTimeFav = new Chart(
-            document.getElementById(`myChartCanvasTimeFav`),
-            configTimeFav
-        );
+  //             resposta.text().then(texto => {
+  //                 console.error(texto);
+  //                 // finalizarAguardar(texto);
+  //             });
+  //         }
 
-  }
-
+  //     }).catch(function (erro) {
+  //         console.log(erro);
+  //     })
 </script>

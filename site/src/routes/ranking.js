@@ -1,14 +1,14 @@
 var express = require("express");
 var router = express.Router();
 
-var medidaController = require("../controllers/medidaController");
+var rankingController = require("../controllers/rankingController");
 
 router.get("/ultimas", function (req, res) {
-    medidaController.buscarUltimasMedidas(req, res);
+    rankingController.buscarUltimasMedidas(req, res);
 });
 
 // router.get("/tempo-real/:idAquario", function (req, res) {
-//     medidaController.buscarMedidasEmTempoReal(req, res);
+//     rankingController.buscarMedidasEmTempoReal(req, res);
 // })
 
 module.exports = router;

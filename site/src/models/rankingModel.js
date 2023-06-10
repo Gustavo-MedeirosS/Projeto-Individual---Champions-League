@@ -15,12 +15,13 @@ function buscarUltimasMedidas() {
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
-        count(u.fkTimeFavorito) as usuarios,
-        t.nome as time
-        from timeFavorito as t join usuario as u
-            on idTime = fkTimeFavorito
-            group by t.nome
-            order by usuarios desc;`;
+        u.nome as 'Usuário',
+        p.acertos 'Acertos',
+        p.pontuacao as 'Pontuação',
+        t.nome as 'Time'
+        from pontuacaoQuiz as p join usuario as u
+            on fkUsuario = idUsuario
+            join timeFavorito as t on idTime = fkTimeFavorito;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

@@ -1,3 +1,7 @@
+sessionStorage.EMAIL_USUARIO
+sessionStorage.NOME_USUARIO
+sessionStorage.ID_USUARIO
+
 if (sessionStorage.length == 0) {
   nome_usuario.innerHTML = "Entrar";
 } else {

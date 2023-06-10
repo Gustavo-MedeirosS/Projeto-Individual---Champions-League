@@ -1,6 +1,5 @@
 // sessão
 function validarSessao() {
-    // aguardar();
 
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
@@ -10,18 +9,16 @@ function validarSessao() {
     if (email != null && nome != null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);
         nome_usuario.innerHTML = nome;
+        window.location = "../dashboard/analytics.html"
 
-        // finalizarAguardar();
     } else {
         window.location = "../login.html";
     }
 }
 
 function limparSessao() {
-    // aguardar();
     sessionStorage.clear();
-    // finalizarAguardar();
-    window.location = "../login.html";
+    window.location = "../index.html";
 }
 
 // carregamento (loading)

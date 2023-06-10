@@ -32,10 +32,16 @@ insert into timeFavorito values
 	(null, 'Benfica');
 
 create table consultaTimes (
-idPesquisa int primary key auto_increment,
+idPesquisa int auto_increment,
 nomeTime varchar(45),
-qtdConsulta int
+qtdConsulta int,
+fkUsuario int,
+constraint fkUs foreign key (fkUsuario) references usuario(idUsuario),
+constraint pkDupla primary key (idPesquisa, fkUsuario)
 ) auto_increment = 0;
+
+insert into consultaTimes(nomeTime, qtdConsulta, fkUsuario) values
+	('Barcelona', 1, 100);
 
 insert into consultaTimes values
 	(null, 'Ajax', 2),
@@ -73,6 +79,7 @@ insert into consultaTimes values
 
 create table pontuacaoQuiz (
 idPontuacao int auto_increment,
+acertos int,
 pontuacao int,
 fkUsuario int,
 constraint fkUser foreign key (fkUsuario) references usuario(idUsuario),
@@ -85,13 +92,15 @@ select * from usuario;
 
 select * from usuario join timeFavorito 
 	on fkTimeFavorito = idTime;
-    
+
+-- select do time favorito    
 select 
-count(u.fkTimeFavorito),
-t.nome 
+count(u.fkTimeFavorito) as Escolhas,
+t.nome as Time
 from timeFavorito as t join usuario as u
 	on idTime = fkTimeFavorito
-    group by t.nome;
+    group by t.nome
+    order by Escolhas desc;
 
 -- SELECTS SOBRE IDADE
 select (year(current_timestamp()) - year(dataNascimento)) as Idade from usuario where idUsuario = 106;
@@ -104,3 +113,20 @@ max((year(current_timestamp()) - year(dataNascimento))) as 'Idade Máxima',
 min((year(current_timestamp()) - year(dataNascimento))) as 'Idade Mínima'
 from usuario;
 
+-- select para ranking
+select 
+u.nome as 'Usuário',
+p.acertos 'Acertos',
+p.pontuacao as 'Pontuação',
+t.nome as 'Time'
+from pontuacaoQuiz as p join usuario as u
+	on fkUsuario = idUsuario
+    join timeFavorito as t on idTime = fkTimeFavorito;
+    
+-- select para time consultado
+select 
+count(c.qtdConsulta) as 'Quantidade de consultas',
+c.nomeTime as 'Time'
+from consultaTimes as c
+    group by c.nomeTime
+    order by c.qtdConsulta desc;

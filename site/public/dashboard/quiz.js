@@ -1,3 +1,7 @@
+sessionStorage.EMAIL_USUARIO
+sessionStorage.NOME_USUARIO
+sessionStorage.ID_USUARIO
+
 var quiz = [
     {
         questao: 1,
@@ -97,29 +101,33 @@ function iniciarQuiz() {
             <input 
                 type="radio" 
                 name="option${quiz[i].questao}" 
+                id="alternativaA${quiz[i].questao}"
                 value="${quiz[i].alternativa1}" ${quiz[i].alternativa1 == respostasUsuario[i] ? "checked" : ""}
-            >${quiz[i].alternativa1}
+            ><label for="alternativaA${quiz[i].questao}">${quiz[i].alternativa1}</label>
         </div>
         <div class="option">
             <input 
                 type="radio" 
                 name="option${quiz[i].questao}" 
+                id="alternativaB${quiz[i].questao}"
                 value="${quiz[i].alternativa2}" ${quiz[i].alternativa2 == respostasUsuario[i] ? "checked" : ""}
-            >${quiz[i].alternativa2}
+            ><label for="alternativaB${quiz[i].questao}">${quiz[i].alternativa2}</label>
         </div>
         <div class="option">
             <input 
                 type="radio" 
                 name="option${quiz[i].questao}" 
+                id="alternativaC${quiz[i].questao}"
                 value="${quiz[i].alternativa3}" ${quiz[i].alternativa3 == respostasUsuario[i] ? "checked" : ""}
-            >${quiz[i].alternativa3}
+            ><label for="alternativaC${quiz[i].questao}">${quiz[i].alternativa3}</label>
         </div>
         <div class="option">
             <input 
                 type="radio" 
                 name="option${quiz[i].questao}" 
+                id="alternativaD${quiz[i].questao}"
                 value="${quiz[i].alternativa4}" ${quiz[i].alternativa4 == respostasUsuario[i] ? "checked" : ""}
-            >${quiz[i].alternativa4}
+            ><label for="alternativaD${quiz[i].questao}">${quiz[i].alternativa4}</label>
         </div>
     </div>
     </div>
@@ -138,7 +146,6 @@ function passarQuestao() {
     for (var indice = 0; indice < radios.length; indice++) {
         if (radios[indice].checked) {
             if (respostasUsuario[i]) {
-                console.log("deu certo");
                 respostasUsuario[i] = radios[indice].value;
             } else {
                 respostasUsuario.push(radios[indice].value);
@@ -147,8 +154,12 @@ function passarQuestao() {
     }
 
     i++;
+    if (i < quiz.length) {
+        iniciarQuiz();
+    } else {
+        finalizarQuiz();
+    }
 
-    iniciarQuiz();
 }
 
 function voltarQuestao() {
@@ -157,7 +168,9 @@ function voltarQuestao() {
 }
 
 function finalizarQuiz() {
-    i++;
+    console.log("Entrou no finalizarQuiz()")
+    console.log("Subiu todas as respostas")
+    
     if (respostasUsuario.length != gabarito.length) {
         swal("Ops", "Pergunta(s) em branco. Por favor, responda todas as perguntas.", "error");
     } else {
@@ -165,8 +178,44 @@ function finalizarQuiz() {
         for (var i = 0; i < respostasUsuario.length; i++) {
             if (respostasUsuario[i] == gabarito[i]) {
                 respostasCertas++;
+                
             }
         }
-        console.log("Respostas certas: ", respostasCertas);
+
+        var pontuacao = respostasCertas * 3;    
+    
+        fetch(`/quiz/publicar/${sessionStorage.ID_USUARIO}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                acertos: respostasCertas,
+                pontuacao: pontuacao,
+                fkUsuario: sessionStorage.ID_USUARIO
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                swal("Quiz finalizado!", `Você acertou ${respostasCertas} de ${gabarito.length} questões!`, "success");
+                // window.location = "/dashboard/mural.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        div_quiz.innerHTML = `
+            <p>Clique abaixo e acompanhe o ranking do quiz</p>
+            <button class="verRanking" onclick="verRanking()">Ranking</button>
+        `;
+
     }
+}
+
+function verRanking() {
+    window.location = "ranking.html"
 }

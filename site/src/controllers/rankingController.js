@@ -1,10 +1,10 @@
-var medidaModel = require("../models/medidaModel");
+var rankingModel = require("../models/rankingModel");
 
 function buscarUltimasMedidas(req, res) {
 
     // const limite_linhas = 7;
 
-    medidaModel.buscarUltimasMedidas().then(function (resultado) {
+    rankingModel.buscarUltimasMedidas().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -25,7 +25,7 @@ function buscarUltimasMedidas(req, res) {
 
 //     console.log(`Recuperando medidas em tempo real`);
 
-//     medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+//     rankingModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
 //         if (resultado.length > 0) {
 //             res.status(200).json(resultado);
 //         } else {

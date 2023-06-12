@@ -94,7 +94,7 @@
           
           <div id="quadroTimeConsultado" class="quadro timeConsultado">
             <h3 class="tituloGraficos">
-                Times mais consultados pelos usuarios
+                Times mais consultados pelos usuários
             </h3>
             <div class="grafico timeConsultado">
                 <canvas id="myChartCanvasTimeConsultado"></canvas>
@@ -228,7 +228,7 @@
     let dadosTimeConsultado = {
         labels: labelsTimeConsultado,
         datasets: [{
-            label: '',
+            label: 'Times',
             data: [],
             fill: false,
             backgroundColor: [
@@ -239,7 +239,8 @@
               "yellow",
               "purple",
               "orange",
-              "gray"
+              "gray",
+              "brown"
             ],
             tension: 0.1
         }]
@@ -264,15 +265,22 @@
 
 
     // Criando estrutura para plotar gráfico - config
-    const configTimeFav = {
+    const configTimeConsultado = {
             type: 'bar',
             data: dadosTimeConsultado,
+            options: {
+              plugins: {
+                legend: {
+                  display: false,
+                }
+              }
+            }
         };
 
         // Adicionando gráfico criado em div na tela
         let myChartTimeFav = new Chart(
             document.getElementById(`myChartCanvasTimeConsultado`),
-            configTimeFav
+            configTimeConsultado
         );
 
   }

@@ -88,7 +88,9 @@ from pontuacaoQuiz as p join usuario as u
 -- select para time consultado
 select 
 count(c.nomeTime) as Consultas,
-c.nomeTime as Time
+c.nomeTime as Times
 from consultaTimes as c
     group by Times
     order by Consultas desc;
+    
+delete from pontuacaoQuiz where idPontuacao = 5;

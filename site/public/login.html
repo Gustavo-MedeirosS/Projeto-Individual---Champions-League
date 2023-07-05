@@ -86,15 +86,11 @@
   }
 
   function entrar() {
-      // aguardar();
 
       var emailVar = input_email.value;
       var senhaVar = input_senha.value;
 
       if (emailVar == "" || senhaVar == "") {
-          // cardErro.style.display = "block"
-          // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-          // finalizarAguardar();
           swal("Ops", "Preencha os campos de email e senha!", "error");
           return false;
       }
@@ -120,10 +116,12 @@
               resposta.json().then(json => {
                   console.log(json);
                   console.log(JSON.stringify(json));
+                  console.log("Time favorito: " + json.fkTimeFavorito);
 
                   sessionStorage.EMAIL_USUARIO = json.email;
                   sessionStorage.NOME_USUARIO = json.nome;
                   sessionStorage.ID_USUARIO = json.idUsuario;
+                  sessionStorage.TIME_FAVORITO = json.fkTimeFavorito;
 
                   swal("Boa!", "Redirecionando para a área do usuário...", "success");
 
@@ -140,7 +138,6 @@
 
               resposta.text().then(texto => {
                   console.error(texto);
-                  // finalizarAguardar(texto);
               });
           }
 
@@ -150,9 +147,5 @@
 
       return false;
   }
-
-  // function sumirMensagem() {
-  //     cardErro.style.display = "none"
-  // }
 
 </script>

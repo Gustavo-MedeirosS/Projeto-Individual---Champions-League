@@ -48,6 +48,7 @@ constraint fkUser foreign key (fkUsuario) references usuario(idUsuario),
 constraint pkComposta primary key (idPontuacao, fkUsuario)
 );
 
+update pontuacaoQuiz set acertos = 3, pontuacao = 9 where fkUsuario = 111;
 
 -- SELECTS -------------------------------------------------------------
 select * from usuario;
@@ -92,5 +93,5 @@ c.nomeTime as Times
 from consultaTimes as c
     group by Times
     order by Consultas desc;
-    
-delete from pontuacaoQuiz where idPontuacao = 5;
+
+select * from pontuacaoQuiz where fkUsuario = 111;

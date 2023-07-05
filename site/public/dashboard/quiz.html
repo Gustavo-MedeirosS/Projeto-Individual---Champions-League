@@ -20,7 +20,7 @@
     ></script>
     <script src="../js/funcoes.js"></script>
 </head>
-<body>
+<body onload="exibirUsuario2()">
   <header>
     <ul class="navbar">
       <li>
@@ -37,7 +37,7 @@
       </li>
       <li>
         <button onclick="validarSessao()" id="usuario" class="entrar">
-          <i class="fa-solid fa-user fa-xs" style="color: #110391;"></i><span id="nome_usuario"></span>
+          <span id="iconeUsuario"></span><span id="nome_usuario"></span>
         </button>
       </li>
     </ul>
@@ -46,7 +46,7 @@
     <header>
       <ul class="navbar-left">
         <div class="usuario">
-          <i class="fas fa-solid fa-user" style="color: #ffffff;"></i>
+          <span id="iconeUsuario2"></span>
           <span id="nome_usuario2"></span>
         </div>
         <li>

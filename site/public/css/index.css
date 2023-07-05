@@ -33,6 +33,7 @@ body {
     color: #fff;
     font-size: large;
     border-bottom: 1px solid transparent;
+    transition: 0.5s;
 }
 
 .navbar img {
@@ -433,6 +434,7 @@ footer a {
     color: #fff;
     font-size: 15px;
     border-bottom: 1px solid transparent;
+    transition: 0.5s;
 }
 
 footer a:hover {

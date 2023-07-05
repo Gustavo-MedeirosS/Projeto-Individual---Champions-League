@@ -1,5 +1,21 @@
 var quizModel = require("../models/quizModel");
 
+function consultar(req, res) {
+
+    quizModel.consultar(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
 function publicar(req, res) {
     var acertos = req.body.acertos;
     var pontuacao = req.body.pontuacao;
@@ -29,10 +45,13 @@ function publicar(req, res) {
 }
 
 function editar(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idQuiz = req.params.idquiz;
+    var novaPontuacao = req.body.pontuacao;
+    // var novaPontuacao = req.params.pontuacao;
+    var novaQtdAcertos = req.body.acertos;
+    // var idPontuacao = req.params.idPontuacao;
+    var idUsuario = req.params.idUsuario;
 
-    quizModel.editar(novaDescricao, idQuiz)
+    quizModel.editar(novaPontuacao, novaQtdAcertos, idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -51,4 +70,5 @@ function editar(req, res) {
 module.exports = {
     publicar,
     editar,
+    consultar
 }

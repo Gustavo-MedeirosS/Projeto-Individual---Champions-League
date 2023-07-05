@@ -7,7 +7,11 @@ router.post("/publicar/:idUsuario", function (req, res) {
     quizController.publicar(req, res);
 });
 
-router.put("/editar/:idquiz", function (req, res) {
+router.put("/consultar/:idUsuario", function (req, res) {
+    quizController.consultar(req, res);
+});
+
+router.put("/editar/:idUsuario", function (req, res) {
     quizController.editar(req, res);
 });
 

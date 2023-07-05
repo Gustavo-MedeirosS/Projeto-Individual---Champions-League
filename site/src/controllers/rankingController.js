@@ -2,8 +2,6 @@ var rankingModel = require("../models/rankingModel");
 
 function buscarUltimasMedidas(req, res) {
 
-    // const limite_linhas = 7;
-
     rankingModel.buscarUltimasMedidas().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);

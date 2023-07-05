@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="./images/icon-champions-league.png" type="image/x-icon">
     <script src="./js/funcoes.js"></script>
   </head>
-  <body>
+  <body onload="exibirUsuario()">
     <header>
       <ul class="navbar">
         <li>
@@ -30,7 +30,7 @@
         </li>
         <li>
           <button onclick="validarSessao()" id="usuario" class="entrar">
-            <i class="fa-solid fa-user fa-xs" style="color: #110391;"></i><span id="nome_usuario"></span>
+            <span id="iconeUsuario"></span><span id="nome_usuario"></span>
           </button>
         </li>
       </ul>

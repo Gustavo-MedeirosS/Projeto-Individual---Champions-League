@@ -185,36 +185,93 @@ function finalizarQuiz() {
             }
         }
 
-        var pontuacao = respostasCertas * 3;    
-    
-        fetch(`/quiz/publicar/${sessionStorage.ID_USUARIO}`, {
-            method: "POST",
+        var pontuacaoAtual = respostasCertas * 3;
+        
+        fetch(`/quiz/consultar/${sessionStorage.ID_USUARIO}`, {
+            // method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                acertos: respostasCertas,
-                pontuacao: pontuacao,
-                fkUsuario: sessionStorage.ID_USUARIO
-            })
+            // body: JSON.stringify({
+            //     idPontuacao: idPontuacao,
+            //     acertos: respostasCertas,
+            //     pontuacao: pontuacaoAtual,
+            //     idUsuario: sessionStorage.ID_USUARIO
+            // })
         }).then(function (resposta) {
-
+            console.log("ESTOU NO THEN DO consultar()!")
+  
             if (resposta.ok) {
-                swal("Quiz finalizado!", `Você acertou ${respostasCertas} de ${gabarito.length} questões!`, "success");
-                // window.location = "/dashboard/mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+                console.log(resposta);
+                console.log("Consultou");
 
-        div_quiz.innerHTML = `
-            <p>Clique abaixo e acompanhe o ranking do quiz</p>
-            <button class="verRanking" onclick="verRanking()">Ranking</button>
-        `;
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                });
+  
+                if (pontuacaoAtual > body.pontuacao) {
+                    
+                    // fetch(`/quiz/editar/${sessionStorage.ID_USUARIO}`, {
+                    //     method: "PUT",
+                    //     headers: {
+                    //         "Content-Type": "application/json"
+                    //     },
+                    //     body: JSON.stringify({
+                    //         respostasCertas: respostasCertas,
+                    //         novaPontuacao: pontuacaoAtual
+                    //     })
+
+                    // }).then(function (resposta) {
+            
+                    //     if (resposta.ok) {
+                    //         swal("Quiz finalizado!", `Você acertou ${respostasCertas} de ${gabarito.length} questões!`, "success");
+                    //     } else if (resposta.status == 404) {
+                    //         window.alert("Deu 404!");
+                    //     } else {
+                    //         throw ("Houve um erro ao tentar editar o quiz! Código da resposta: " + resposta.status);
+                    //     }
+                    // }).catch(function (resposta) {
+                    //     console.log(`#ERRO: ${resposta}`);
+                    // });
+                }
+  
+            } else {
+                console.log("Não consultou");
+                // fetch(`/quiz/publicar/${sessionStorage.ID_USUARIO}`, {
+                //     method: "POST",
+                //     headers: {
+                //         "Content-Type": "application/json"
+                //     },
+                //     body: JSON.stringify({
+                //         acertos: respostasCertas,
+                //         pontuacao: pontuacaoAtual,
+                //         fkUsuario: sessionStorage.ID_USUARIO
+                //     })
+                // }).then(function (resposta) {
+        
+                //     if (resposta.ok) {
+                //         swal("Quiz finalizado!", `Você acertou ${respostasCertas} de ${gabarito.length} questões!`, "success");
+                //     } else if (resposta.status == 404) {
+                //         window.alert("Deu 404!");
+                //     } else {
+                //         throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                //     }
+                // }).catch(function (resposta) {
+                //     console.log(`#ERRO: ${resposta}`);
+                // });
+        
+                // div_quiz.innerHTML = `
+                //     <p>Clique abaixo e acompanhe o ranking do quiz</p>
+                //     <button class="verRanking" onclick="verRanking()">Ranking</button>
+                // `;
+            }
+  
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+  
+        return false;
 
     }
 }

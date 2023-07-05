@@ -39,6 +39,7 @@ body {
     color: #fff;
     font-size: large;
     border-bottom: 1px solid transparent;
+    transition: 0.5s;
 }
 
 .navbar img {
@@ -157,6 +158,21 @@ body {
     padding: 10px;
 }
 
+.navbar-left .usuario #iconeUsuario2 {
+    position: relative;
+    width: 60px;
+    height: 40px;
+    top: 14px;
+    left: 8px;
+    font-size: 20px;
+    text-align: start;
+    display: inline-flex;
+}
+
+.navbar-left .usuario #nome_usuario2 {
+    position: relative;
+    top: 7px;
+}
 .navbar-left .sair {
     position: absolute;
     bottom: 15px;
@@ -635,3 +651,9 @@ body {
     justify-content: start;
     align-items: center;
 }
+
+/* #iconeUsuario {
+    height: 15px;
+    display: flex;
+    align-self: center;
+} */

@@ -11,14 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../images/icon-champions-league.png" type="image/x-icon">
-    <link rel="stylesheet" href="dashboard2.js">
     <!-- Sweet alert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- ChartJS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/funcoes.js"></script>
 </head>
-<body>
+<body onload="exibirUsuario2(), obterDadosGraficos()">
   <header>
     <ul class="navbar">
       <li>
@@ -35,7 +34,7 @@
       </li>
       <li>
         <button onclick="validarSessao()" id="usuario" class="entrar">
-          <i class="fa-solid fa-user fa-xs" style="color: #110391;"></i><span id="nome_usuario"></span>
+          <span id="iconeUsuario"></span><span id="nome_usuario"></span>
         </button>
       </li>
     </ul>
@@ -44,7 +43,7 @@
     <header>
       <ul class="navbar-left">
         <div class="usuario">
-          <i class="fas fa-solid fa-user" style="color: #ffffff;"></i>
+          <span id="iconeUsuario2"></span>
           <span id="nome_usuario2"></span>
         </div>
         <li>
@@ -110,11 +109,10 @@
   sessionStorage.EMAIL_USUARIO;
   sessionStorage.NOME_USUARIO;
   sessionStorage.ID_USUARIO;
+  sessionStorage.TIME_FAVORITO;
 
   nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
   nome_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
-
-  window.onload = obterDadosGraficos();
 
   function obterDadosGraficos() {
     obterDadosGraficoTimeFav();
@@ -164,11 +162,11 @@
   function plotarGraficoTimeFav(resposta) {
 
     // Criando estrutura para plotar gráfico - labels
-    let labelsTimeConsultado = [];
+    let labelsTimeFavorito = [];
 
     // Criando estrutura para plotar gráfico - dados
     let dadosTimeFav = {
-        labels: labelsTimeConsultado,
+        labels: labelsTimeFavorito,
         datasets: [{
             label: '',
             data: [],
@@ -190,8 +188,8 @@
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            labelsTimeConsultado.push(registro.time);
-            console.log("Labels: ", labelsTimeConsultado)
+            labelsTimeFavorito.push(registro.time);
+            console.log("Labels: ", labelsTimeFavorito)
             dadosTimeFav.datasets[0].data.push(registro.usuarios);
         }
 
@@ -199,7 +197,7 @@
       console.log('----------------------------------------------')
       console.log('O gráfico será plotado com os respectivos valores:')
       console.log('Labels:')
-      console.log(labelsTimeConsultado)
+      console.log(labelsTimeFavorito)
       console.log('Dados:')
       console.log(dadosTimeFav.datasets)
       console.log('----------------------------------------------')

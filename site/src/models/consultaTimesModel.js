@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function publicar(nomeTime, fkUsuario) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", nomeTime, fkUsuario);
+    console.log("ACESSEI O CONSULTA TIMES MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", nomeTime, fkUsuario);
     var instrucao = `
     insert into consultaTimes(nomeTime, fkUsuario) values ('${nomeTime}', ${fkUsuario});
     `;

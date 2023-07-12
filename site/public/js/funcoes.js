@@ -11,6 +11,15 @@ function validarSessao() {
     }
 }
 
+function validarCadastrar() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+
+    if (email != null && nome != null) {
+        window.location = "../dashboard/analytics.html";
+    } 
+}
+
 function limparSessao() {
     sessionStorage.clear();
     swal("Saindo...", "Desconectando do site e redirecionando para a home...", "success");

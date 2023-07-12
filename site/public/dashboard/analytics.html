@@ -93,7 +93,7 @@
           
           <div id="quadroTimeConsultado" class="quadro timeConsultado">
             <h3 class="tituloGraficos">
-                Times mais consultados pelos usuários
+                Times consultados pelos usuários
             </h3>
             <div class="grafico timeConsultado">
                 <canvas id="myChartCanvasTimeConsultado"></canvas>
@@ -177,8 +177,6 @@
               "green",
               "black",
               "yellow",
-              "purple",
-              "orange",
               "gray"
             ],
             tension: 0.1
@@ -191,8 +189,14 @@
             labelsTimeFavorito.push(registro.time);
             console.log("Labels: ", labelsTimeFavorito)
             dadosTimeFav.datasets[0].data.push(registro.usuarios);
-        }
+    }
+    
+    // Removendo a partir do 6° item dos vetores e adicionando como "outros" no gráfico
+    let outrosTimesFavoritos = labelsTimeFavorito.splice(5);
+    let dadosOutrosTimesFavoritos = dadosTimeFav.datasets[0].data.splice(5);
 
+    labelsTimeFavorito.push("Outros");
+    dadosTimeFav.datasets[0].data.push(dadosOutrosTimesFavoritos.length);
 
       console.log('----------------------------------------------')
       console.log('O gráfico será plotado com os respectivos valores:')
@@ -235,10 +239,7 @@
               "green",
               "black",
               "yellow",
-              "purple",
-              "orange",
               "gray",
-              "brown"
             ],
             tension: 0.1
         }]
@@ -250,8 +251,22 @@
             labelsTimeConsultado.push(registro.Times);
             console.log("Labels: ", labelsTimeConsultado)
             dadosTimeConsultado.datasets[0].data.push(registro.Consultas);
-        }
+    }
 
+    // Removendo a partir do 6° item dos vetores e adicionando como "outros" no gráfico
+    let outrosTimesConsultados = labelsTimeConsultado.splice(5);
+    let dadosOutrosTimesConsultados = dadosTimeConsultado.datasets[0].data.splice(5);
+
+    var qtdConsultasOutrosTimes = 0;
+    for (j = 0; j < dadosOutrosTimesConsultados.length; j++) {
+      qtdConsultasOutrosTimes += dadosOutrosTimesConsultados[j];
+    }
+
+    labelsTimeConsultado.push("Outros");
+    dadosTimeConsultado.datasets[0].data.push(qtdConsultasOutrosTimes);
+
+    console.log("Dados de outros times: ");
+    console.log(dadosOutrosTimesConsultados);
 
       console.log('----------------------------------------------')
       console.log('O gráfico será plotado com os respectivos valores:')

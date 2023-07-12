@@ -2,23 +2,12 @@ sessionStorage.EMAIL_USUARIO;
 sessionStorage.NOME_USUARIO;
 sessionStorage.ID_USUARIO;
 
-
-
-  if (sessionStorage.EMAIL_USUARIO != null && sessionStorage.NOME_USUARIO != null) {
-    // window.alert(`Seja bem-vindo, ${nome}!`);
+if (sessionStorage.EMAIL_USUARIO != null && sessionStorage.NOME_USUARIO != null) {
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     nome_usuario2.innerHTML = sessionStorage.NOME_USUARIO;
-    // window.location = "../dashboard/analytics.html"
-
 } else {
     window.location = "../login.html";
 }
-
-// if (sessionStorage.length == 0) {
-//   nome_usuario.innerHTML = "Entrar";
-// } else {
-//   nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-// }
 
 var dadosTimes = [
   {
@@ -438,6 +427,13 @@ var dadosTimes = [
     cartoes_vermelhos: 1,
   },
 ];
+
+document.addEventListener("keypress", function (event) {
+  if (event.key === 'Enter') {
+    document.querySelector("time_digitado");
+    return buscarTime(); 
+  };
+})
 
 function buscarTime() {
   var timeDigitado = document.getElementById("time_digitado").value;

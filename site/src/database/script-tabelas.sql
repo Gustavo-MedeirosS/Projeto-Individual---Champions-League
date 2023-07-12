@@ -94,4 +94,6 @@ from consultaTimes as c
     group by Times
     order by Consultas desc;
 
+select * from pontuacaoQuiz;
+select * from pontuacaoQuiz join usuario on fkUsuario = idUsuario;
 select * from pontuacaoQuiz where fkUsuario = 111;

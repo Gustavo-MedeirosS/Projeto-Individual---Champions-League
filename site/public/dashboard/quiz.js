@@ -181,7 +181,6 @@ function finalizarQuiz() {
         for (var i = 0; i < respostasUsuario.length; i++) {
             if (respostasUsuario[i] == gabarito[i]) {
                 respostasCertas++;
-                
             }
         }
 
@@ -193,71 +192,79 @@ function finalizarQuiz() {
             console.log("ESTOU NO THEN DO consultar()!")
             
             if (response.ok) {
-                console.log(response);
-                
-                response.json().then(function (resposta) {
-                    console.log("Resposta: ", JSON.stringify(resposta));
-                    var resultado = resposta;
-                    
-                    
-                        console.log("Respondeu o quiz.");
-                        
-                        if (pontuacaoAtual > resultado[0].pontuacao) {
-                            
-                            fetch(`/quiz/editar/${sessionStorage.ID_USUARIO}`, {
-                                method: "PUT",
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify({
-                                    acertos: respostasCertas,
-                                    pontuacao: pontuacaoAtual,
-                                    fkUsuario: sessionStorage.ID_USUARIO
-                                })
-        
-                            }).then(function (resposta) {
-                    
-                                if (resposta.ok) {
-                                    swal("Quiz finalizado!", `Boa, sua pontuação foi melhor que a anterior! Você acertou ${respostasCertas} de ${gabarito.length} questões!`, "success");
-                                } else if (resposta.status == 404) {
-                                    window.alert("Deu 404!");
-                                } else {
-                                    throw ("Houve um erro ao tentar editar o quiz! Código da resposta: " + resposta.status);
-                                }
-                            }).catch(function (resposta) {
-                                console.log(`#ERRO: ${resposta}`);
-                            });
-                        } else {
-                            swal("Quiz finalizado!", `Sua pontuação não ultrapassou a anterior. Você acertou ${respostasCertas} de ${gabarito.length} questões! Dá pra melhorar, hein?!`, "success");
-                        }
+                console.log("Response: ", response);
 
-                    
-                });
-                
+                if (response.status == 200) {
+
+                    response.json().then(function (resposta) {
+                        console.log("Resposta: ", JSON.stringify(resposta));
+                        var resultado = resposta;
+                        
+                        
+                            console.log("Respondeu o quiz.");
+                            
+                            if (pontuacaoAtual > resultado[0].pontuacao) {
+                                
+                                fetch(`/quiz/editar/${sessionStorage.ID_USUARIO}`, {
+                                    method: "PUT",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({
+                                        acertos: respostasCertas,
+                                        pontuacao: pontuacaoAtual,
+                                        fkUsuario: sessionStorage.ID_USUARIO
+                                    })
+            
+                                }).then(function (resposta) {
+                        
+                                    if (resposta.ok) {
+                                        swal("Quiz finalizado!", `Boa, sua pontuação foi melhor que a anterior! Você acertou ${respostasCertas} de ${gabarito.length} questões!`, "success");
+                                    } else if (resposta.status == 404) {
+                                        window.alert("Deu 404!");
+                                    } else {
+                                        throw ("Houve um erro ao tentar editar o quiz! Código da resposta: " + resposta.status);
+                                    }
+                                }).catch(function (resposta) {
+                                    console.log(`#ERRO: ${resposta}`);
+                                });
+                            } else {
+                                swal("Quiz finalizado!", `Sua pontuação não ultrapassou a anterior. Você acertou ${respostasCertas} de ${gabarito.length} questões! Dá pra melhorar, hein?!`, "success");
+                            }
+    
+                    });
+
+                } else if (response.status == 204) {
+                    console.log("Não respondeu o quiz.");
+                    fetch(`/quiz/publicar/${sessionStorage.ID_USUARIO}`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            acertos: respostasCertas,
+                            pontuacao: pontuacaoAtual,
+                            fkUsuario: sessionStorage.ID_USUARIO
+                        })
+                    }).then(function (resposta) {
+            
+                        if (resposta.ok) {
+                            swal("Quiz finalizado!", `Você acertou ${respostasCertas} de ${gabarito.length} questões!`, "success");
+                        } else if (resposta.status == 404) {
+                            window.alert("Deu 404!");
+                        } else {
+                            throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                        }
+                    }).catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                    });
+
+                } else {
+                    console.log("Erro ao consultar no banco se o usuário já respondeu o quiz ou não.");
+                }
+                                
             } else {
-                console.log("Não respondeu o quiz.");
-                fetch(`/quiz/publicar/${sessionStorage.ID_USUARIO}`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        acertos: respostasCertas,
-                        pontuacao: pontuacaoAtual,
-                        fkUsuario: sessionStorage.ID_USUARIO
-                    })
-                }).then(function (resposta) {
-        
-                    if (resposta.ok) {
-                        swal("Quiz finalizado!", `Você acertou ${respostasCertas} de ${gabarito.length} questões!`, "success");
-                    } else if (resposta.status == 404) {
-                        window.alert("Deu 404!");
-                    } else {
-                        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-                    }
-                }).catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-                });
+                console.log("Erro em retornar a response");
             }
             
         }).catch(function (erro) {

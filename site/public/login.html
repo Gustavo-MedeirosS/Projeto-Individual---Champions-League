@@ -85,6 +85,13 @@
     window.location = "./cadastro.html";
   }
 
+  document.addEventListener("keypress", function (event) {
+    if (event.key === 'Enter') {
+      document.querySelector("input_senha");
+      return entrar();
+    }
+  })
+
   function entrar() {
 
       var emailVar = input_email.value;
